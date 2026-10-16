@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Stamp Order"
+config/description="Press the stamps in the right order to recreate each picture."
+config/version="0.1.0"
+run/main_scene="res://core/ui/main_menu.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.909804, 0.87451, 0.811765, 1)
+config/quit_on_go_back=false
+
+[autoload]
+
+Save="*res://core/autoload/save.gd"
+Analytics="*res://core/autoload/analytics.gd"
+Levels="*res://core/autoload/levels.gd"
+Audio="*res://core/autoload/audio.gd"
+Haptics="*res://core/autoload/haptics.gd"
+Router="*res://core/autoload/router.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/size/window_width_override=450
+window/size/window_height_override=800
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[input_devices]
+
+pointing/emulate_mouse_from_touch=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.909804, 0.87451, 0.811765, 1)

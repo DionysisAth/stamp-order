@@ -1,0 +1,15 @@
+# Godot
+.godot/
+/android/
+*.translation
+
+# Builds
+/build/
+*.apk
+*.aab
+*.keystore
+*.jks
+export_credentials.cfg
+
+# Level lab candidate dumps (regenerate with the generator)
+/tools/lab/candidates_*.json

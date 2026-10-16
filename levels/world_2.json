@@ -1,0 +1,2310 @@
+{
+  "world": 2,
+  "name": "Kitchen",
+  "twist": "New: some stamps fit in two spots.",
+  "palette": "kitchen",
+  "levels": [
+    {
+      "id": "w2_01",
+      "palette": "kitchen",
+      "tip": "This stamp fits in two spots (see the two dots). Tap it, then tap the spot the target needs.",
+      "stamps": [
+        {
+          "shape": "egg",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 4,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 4,
+          "color": 1,
+          "placements": [
+            {
+              "x": 1,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 1,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 6,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 4,
+          "color": 7,
+          "placements": [
+            {
+              "x": 5,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_02",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "pear",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 4,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 4,
+          "color": 4,
+          "placements": [
+            {
+              "x": 11,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 3,
+              "y": 2,
+              "rot": 0
+            },
+            {
+              "x": 10,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 8,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_03",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "apple",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 1,
+              "y": 9,
+              "rot": 0
+            },
+            {
+              "x": 9,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 2,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 6,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 5,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "toast",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 3,
+              "y": 10,
+              "rot": 0
+            },
+            {
+              "x": 6,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_04",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "slice",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 5,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 5,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 2,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 10,
+              "y": 10,
+              "rot": 0
+            },
+            {
+              "x": 8,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 10,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 7,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "w2_05",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "slice",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 5,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 5,
+          "color": 3,
+          "placements": [
+            {
+              "x": 8,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 4,
+          "color": 1,
+          "placements": [
+            {
+              "x": 8,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 6,
+              "y": 9,
+              "rot": 0
+            },
+            {
+              "x": 9,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 4,
+          "color": 4,
+          "placements": [
+            {
+              "x": 8,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_06",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "toast",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 5,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 8,
+              "rot": 0
+            },
+            {
+              "x": 3,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 7,
+          "placements": [
+            {
+              "x": 0,
+              "y": 10,
+              "rot": 0
+            },
+            {
+              "x": 10,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 5,
+          "color": 4,
+          "placements": [
+            {
+              "x": 9,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 5,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 8,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_07",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "egg",
+          "size": 4,
+          "color": 1,
+          "placements": [
+            {
+              "x": 2,
+              "y": 8,
+              "rot": 0
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 4,
+          "color": 5,
+          "placements": [
+            {
+              "x": 6,
+              "y": 5,
+              "rot": 0
+            },
+            {
+              "x": 10,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "toast",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 3,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 0,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 3,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_08",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "bowl",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 1,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 6,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 5,
+          "color": 4,
+          "placements": [
+            {
+              "x": 6,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 6,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 6,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 5,
+          "color": 7,
+          "placements": [
+            {
+              "x": 6,
+              "y": 2,
+              "rot": 0
+            },
+            {
+              "x": 11,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "w2_09",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "apple",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 8,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 7,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 7,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 9,
+              "y": 9,
+              "rot": 0
+            },
+            {
+              "x": 4,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 7,
+          "placements": [
+            {
+              "x": 4,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 7,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 4,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_10",
+      "palette": "kitchen",
+      "title": "Picture: Breakfast",
+      "picture": true,
+      "stamps": [
+        {
+          "shape": "plate",
+          "size": 14,
+          "color": 5,
+          "placements": [
+            {
+              "x": 1,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 3,
+              "y": 4,
+              "rot": 0
+            },
+            {
+              "x": 8,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "dot",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 4,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "toast",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 8,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 4,
+          "color": 1,
+          "placements": [
+            {
+              "x": 4,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "dot",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 9,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_11",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "toast",
+          "size": 5,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 5,
+          "color": 7,
+          "placements": [
+            {
+              "x": 2,
+              "y": 7,
+              "rot": 0
+            },
+            {
+              "x": 8,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 7,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 2,
+              "y": 6,
+              "rot": 0
+            },
+            {
+              "x": 9,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 2,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 1,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_12",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "toast",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 4,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 4,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 4,
+              "rot": 0
+            },
+            {
+              "x": 5,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 0,
+              "y": 7,
+              "rot": 0
+            },
+            {
+              "x": 6,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 7,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "toast",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 1,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_13",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "egg",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 1,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 3,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 4,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 7,
+              "y": 4,
+              "rot": 0
+            },
+            {
+              "x": 5,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 8,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 3,
+              "y": 5,
+              "rot": 0
+            },
+            {
+              "x": 6,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_14",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "cup",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 5,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 8,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "toast",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 6,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 2,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 4,
+          "color": 5,
+          "placements": [
+            {
+              "x": 4,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 9,
+              "y": 1,
+              "rot": 0
+            },
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 0,
+              "y": 2,
+              "rot": 0
+            },
+            {
+              "x": 2,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_15",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 4,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 5,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "toast",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 10,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 5,
+              "y": 7,
+              "rot": 0
+            },
+            {
+              "x": 8,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 7,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_16",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "cup",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 10,
+              "y": 10,
+              "rot": 0
+            },
+            {
+              "x": 9,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 5,
+          "color": 3,
+          "placements": [
+            {
+              "x": 5,
+              "y": 7,
+              "rot": 0
+            },
+            {
+              "x": 8,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 9,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 10,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 10,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 5,
+              "y": 3,
+              "rot": 0
+            },
+            {
+              "x": 11,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 5,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_17",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "pear",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 1,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 2,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 4,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 4,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "bowl",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 1,
+              "y": 4,
+              "rot": 0
+            },
+            {
+              "x": 2,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 3,
+          "placements": [
+            {
+              "x": 7,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 0,
+              "y": 7,
+              "rot": 0
+            },
+            {
+              "x": 5,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_18",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "bowl",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 7,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 1,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "egg",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 1,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 11,
+              "y": 7,
+              "rot": 0
+            },
+            {
+              "x": 0,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 10,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 4,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "slice",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 6,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 6,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          3,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_19",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "plate",
+          "size": 4,
+          "color": 8,
+          "placements": [
+            {
+              "x": 6,
+              "y": 6,
+              "rot": 0
+            },
+            {
+              "x": 0,
+              "y": 12,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 0,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 3,
+          "placements": [
+            {
+              "x": 8,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 9,
+              "y": 5,
+              "rot": 0
+            },
+            {
+              "x": 9,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            },
+            {
+              "x": 7,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 12,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 3,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w2_20",
+      "palette": "kitchen",
+      "title": "Picture: Tea time",
+      "picture": true,
+      "stamps": [
+        {
+          "shape": "square",
+          "size": 16,
+          "color": 3,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "plate",
+          "size": 10,
+          "color": 5,
+          "placements": [
+            {
+              "x": 3,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cup",
+          "size": 8,
+          "color": 1,
+          "placements": [
+            {
+              "x": 4,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "pear",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 10,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "apple",
+          "size": 5,
+          "color": 4,
+          "placements": [
+            {
+              "x": 11,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "toast",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 0,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    }
+  ]
+}

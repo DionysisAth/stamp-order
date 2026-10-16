@@ -1,0 +1,2587 @@
+{
+  "world": 3,
+  "name": "Night Sky",
+  "twist": "New: tap and hold a stamp to rotate it.",
+  "palette": "night",
+  "levels": [
+    {
+      "id": "w3_01",
+      "palette": "night",
+      "tip": "Stamps with the arrow badge can turn. Tap and hold one to rotate it, then tap to press.",
+      "stamps": [
+        {
+          "shape": "moon",
+          "size": 4,
+          "color": 7,
+          "placements": [
+            {
+              "x": 9,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 2,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 5,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 9,
+              "y": 6,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "moon",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 3,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_02",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "star",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 8,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 2,
+              "y": 7,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 270
+        },
+        {
+          "shape": "rocket",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 10,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 1,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 11,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 5,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_03",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "rocket",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 8,
+              "y": 8,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "star",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 7,
+              "y": 0,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "sparkle",
+          "size": 4,
+          "color": 4,
+          "placements": [
+            {
+              "x": 3,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 6,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 3,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 5,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_04",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "sparkle",
+          "size": 5,
+          "color": 4,
+          "placements": [
+            {
+              "x": 11,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 7,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "rocket",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 7,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 8,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 0,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 3,
+              "y": 3,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "rocket",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 5,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_05",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "comet",
+          "size": 5,
+          "color": 7,
+          "placements": [
+            {
+              "x": 1,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 7,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 5,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 4,
+          "color": 2,
+          "placements": [
+            {
+              "x": 4,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 7,
+              "y": 12,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        },
+        {
+          "shape": "star",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 5,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_06",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "planet",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 3,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 6,
+              "y": 4,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 7,
+              "y": 6,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 270
+        },
+        {
+          "shape": "comet",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 0,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 0,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 6,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_07",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "moon",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 7,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 4,
+          "color": 4,
+          "placements": [
+            {
+              "x": 1,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 3,
+              "y": 1,
+              "rot": 0
+            },
+            {
+              "x": 6,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 4,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 5,
+          "color": 3,
+          "placements": [
+            {
+              "x": 4,
+              "y": 0,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "moon",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 9,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 9,
+              "y": 2,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 270
+        }
+      ],
+      "solution": [
+        [
+          6,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_08",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "planet",
+          "size": 4,
+          "color": 2,
+          "placements": [
+            {
+              "x": 1,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 9,
+              "y": 10,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        },
+        {
+          "shape": "star",
+          "size": 5,
+          "color": 3,
+          "placements": [
+            {
+              "x": 5,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 1,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 5,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 10,
+              "y": 2,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "sparkle",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 8,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_09",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "star",
+          "size": 4,
+          "color": 7,
+          "placements": [
+            {
+              "x": 3,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 0,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 4,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 6,
+              "y": 3,
+              "rot": 270
+            },
+            {
+              "x": 9,
+              "y": 9,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "comet",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 9,
+              "y": 1,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "cloud",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 8,
+              "y": 12,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 3,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 7,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_10",
+      "palette": "night",
+      "title": "Picture: Moon cat",
+      "picture": true,
+      "stamps": [
+        {
+          "shape": "square",
+          "size": 16,
+          "color": 2,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 9,
+          "color": 1,
+          "placements": [
+            {
+              "x": 7,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "triangle",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 4,
+              "y": 4,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        },
+        {
+          "shape": "triangle",
+          "size": 4,
+          "color": 4,
+          "placements": [
+            {
+              "x": 8,
+              "y": 4,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "circle",
+          "size": 8,
+          "color": 5,
+          "placements": [
+            {
+              "x": 4,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 1,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 12,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_11",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "planet",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 3,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 9,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 1,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 8,
+              "y": 0,
+              "rot": 0
+            },
+            {
+              "x": 8,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "rocket",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 5,
+              "y": 5,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "planet",
+          "size": 5,
+          "color": 7,
+          "placements": [
+            {
+              "x": 11,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "rocket",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 11,
+              "y": 2,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        }
+      ],
+      "solution": [
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_12",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "star",
+          "size": 6,
+          "color": 3,
+          "placements": [
+            {
+              "x": 7,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 4,
+          "color": 7,
+          "placements": [
+            {
+              "x": 4,
+              "y": 7,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        },
+        {
+          "shape": "circle",
+          "size": 4,
+          "color": 8,
+          "placements": [
+            {
+              "x": 5,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "rocket",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 8,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 7,
+              "y": 3,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 270
+        },
+        {
+          "shape": "planet",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 3,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 10,
+              "y": 4,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        }
+      ],
+      "solution": [
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_13",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "moon",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 8,
+              "y": 6,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 270
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 6,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 4,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 4,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 12,
+              "rot": 270
+            },
+            {
+              "x": 4,
+              "y": 10,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "moon",
+          "size": 6,
+          "color": 1,
+          "placements": [
+            {
+              "x": 10,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 1,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 1,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_14",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 4,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 2,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 10,
+              "y": 11,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 3,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 7,
+              "y": 10,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        },
+        {
+          "shape": "moon",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 5,
+              "y": 8,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 3,
+              "y": 10,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_15",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "circle",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 7,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 11,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 4,
+          "color": 8,
+          "placements": [
+            {
+              "x": 8,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 8,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 10,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 10,
+              "y": 10,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        }
+      ],
+      "solution": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_16",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "comet",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 4,
+              "y": 0,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 9,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 6,
+              "y": 5,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 270
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 3,
+              "y": 0,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "cloud",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 12,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 4,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 9,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            },
+            {
+              "x": 9,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_17",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "cloud",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 3,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 6,
+          "color": 3,
+          "placements": [
+            {
+              "x": 5,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 4,
+          "color": 1,
+          "placements": [
+            {
+              "x": 0,
+              "y": 5,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        },
+        {
+          "shape": "comet",
+          "size": 6,
+          "color": 4,
+          "placements": [
+            {
+              "x": 3,
+              "y": 8,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        },
+        {
+          "shape": "planet",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 6,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 9,
+              "y": 4,
+              "rot": 0
+            },
+            {
+              "x": 5,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 4,
+          "color": 5,
+          "placements": [
+            {
+              "x": 8,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "comet",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 0,
+              "y": 4,
+              "rot": 0
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_18",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "comet",
+          "size": 4,
+          "color": 5,
+          "placements": [
+            {
+              "x": 9,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 4,
+          "color": 4,
+          "placements": [
+            {
+              "x": 10,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 8,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 9,
+              "y": 3,
+              "rot": 180
+            },
+            {
+              "x": 1,
+              "y": 6,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "planet",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 9,
+              "y": 0,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "planet",
+          "size": 4,
+          "color": 7,
+          "placements": [
+            {
+              "x": 1,
+              "y": 9,
+              "rot": 0
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 90
+        },
+        {
+          "shape": "circle",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 0,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 5,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          7,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "w3_19",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "planet",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 9,
+              "rot": 270
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "rocket",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 6,
+          "color": 2,
+          "placements": [
+            {
+              "x": 4,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 6,
+              "y": 5,
+              "rot": 0
+            },
+            {
+              "x": 0,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 4,
+          "color": 5,
+          "placements": [
+            {
+              "x": 11,
+              "y": 12,
+              "rot": 180
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 0
+        },
+        {
+          "shape": "star",
+          "size": 6,
+          "color": 3,
+          "placements": [
+            {
+              "x": 10,
+              "y": 9,
+              "rot": 0
+            },
+            {
+              "x": 9,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 2,
+              "y": 9,
+              "rot": 90
+            }
+          ],
+          "rotatable": true,
+          "start_rot": 180
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w3_20",
+      "palette": "night",
+      "title": "Picture: Lift-off",
+      "picture": true,
+      "stamps": [
+        {
+          "shape": "square",
+          "size": 16,
+          "color": 2,
+          "placements": [
+            {
+              "x": 0,
+              "y": 0,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "planet",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 0,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "moon",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 11,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "rocket",
+          "size": 9,
+          "color": 4,
+          "placements": [
+            {
+              "x": 4,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 5,
+          "placements": [
+            {
+              "x": 0,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 8,
+          "placements": [
+            {
+              "x": 8,
+              "y": 9,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "star",
+          "size": 4,
+          "color": 6,
+          "placements": [
+            {
+              "x": 11,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sparkle",
+          "size": 4,
+          "color": 3,
+          "placements": [
+            {
+              "x": 2,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ]
+    }
+  ]
+}

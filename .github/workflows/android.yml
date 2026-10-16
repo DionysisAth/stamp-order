@@ -1,0 +1,209 @@
+name: Android CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: "4.7.2"
+
+jobs:
+  test:
+    name: Tests (headless)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-godot
+        with:
+          version: ${{ env.GODOT_VERSION }}
+
+      - name: Import project
+        run: timeout 300 godot --headless --import || true
+
+      - name: Unit tests
+        run: ci/godot_check.sh 600 --script res://tests/run_tests.gd
+
+      - name: UI smoke test (plays all 60 levels)
+        run: ci/godot_check.sh 600 --script res://tests/smoke_ui.gd
+
+      - name: Levels match the generator
+        run: |
+          ci/godot_check.sh 600 --script res://tools/generate_levels.gd > /dev/null
+          git diff --exit-code -- levels/ || {
+            echo "::error::levels/*.json is out of date. Run: godot --headless --script res://tools/generate_levels.gd"
+            exit 1
+          }
+
+  build-apk:
+    name: Build debug APK
+    needs: test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: ./.github/actions/setup-godot
+        with:
+          version: ${{ env.GODOT_VERSION }}
+          android-templates: "true"
+
+      - name: Configure Android export
+        run: ci/configure_android_export.sh
+
+      - name: Import project
+        run: timeout 300 godot --headless --import || true
+
+      - name: Export debug APK
+        run: |
+          mkdir -p build/android
+          ci/godot_check.sh 600 --export-debug "Android" build/android/stamp-order-debug.apk
+          test -s build/android/stamp-order-debug.apk
+          ls -la build/android
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stamp-order-debug-apk
+          path: build/android/stamp-order-debug.apk
+          if-no-files-found: error
+
+  emulator-test:
+    name: Emulator startup test (API ${{ matrix.api-level }})
+    needs: build-apk
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        api-level: [30, 34]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: stamp-order-debug-apk
+          path: build/android
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Cache AVD
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-${{ matrix.api-level }}-google_apis-x86_64
+
+      - name: Create AVD snapshot
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: google_apis
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+
+      - name: Launch app on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: google_apis
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: ci/emulator_smoke_test.sh build/android/stamp-order-debug.apk build/emulator
+
+      - name: Upload logcat and screenshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emulator-api-${{ matrix.api-level }}
+          path: build/emulator/
+          if-no-files-found: ignore
+
+  build-aab:
+    name: Build Play Store AAB
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: ./.github/actions/setup-godot
+        with:
+          version: ${{ env.GODOT_VERSION }}
+          android-templates: "true"
+
+      - name: Configure Android export
+        run: ci/configure_android_export.sh
+
+      - name: Release keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        run: |
+          keystore="$RUNNER_TEMP/release.keystore"
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > "$keystore"
+            alias="$KEY_ALIAS"
+            password="$KEYSTORE_PASSWORD"
+          else
+            echo "::warning::No ANDROID_KEYSTORE_BASE64 secret set. The AAB is signed with a throwaway key and cannot be uploaded to Google Play."
+            alias=throwaway
+            password=throwaway-password
+            keytool -genkeypair -keystore "$keystore" -storepass "$password" -alias "$alias" \
+              -keypass "$password" -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Stamp Order CI" > /dev/null
+          fi
+          echo "::add-mask::$password"
+          {
+            echo "GODOT_ANDROID_KEYSTORE_RELEASE_PATH=$keystore"
+            echo "GODOT_ANDROID_KEYSTORE_RELEASE_USER=$alias"
+            echo "GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD=$password"
+          } >> "$GITHUB_ENV"
+
+      - name: Set version code from run number
+        run: sed -i "s/^version\/code=.*/version\/code=${{ github.run_number }}/" export_presets.cfg
+
+      - name: Import project
+        run: timeout 300 godot --headless --import || true
+
+      - name: Export release AAB (Gradle build)
+        run: |
+          mkdir -p build/android
+          ci/godot_check.sh 1500 --install-android-build-template --export-release "Android Play Store" build/android/stamp-order.aab
+          test -s build/android/stamp-order.aab
+          ls -la build/android
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stamp-order-release-aab
+          path: build/android/stamp-order.aab
+          if-no-files-found: error
