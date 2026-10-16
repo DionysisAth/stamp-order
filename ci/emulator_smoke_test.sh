@@ -14,6 +14,10 @@ PKG="com.dionysisath.stamporder"
 READY_MARKER="STAMP_ORDER_READY"
 READY_TIMEOUT="${READY_TIMEOUT:-180}"
 SETTLE_SECONDS="${SETTLE_SECONDS:-20}"
+# A freshly booted emulator keeps running boot jobs (role grants, package
+# scans, Play services updates) for a while and can kill a just-installed
+# app while doing so; give it time before installing.
+BOOT_SETTLE_SECONDS="${BOOT_SETTLE_SECONDS:-45}"
 mkdir -p "$OUT"
 
 collect() {
@@ -24,8 +28,10 @@ collect() {
 fail() {
   echo "::error::$*"
   collect screenshot-failure.png
-  echo "----- last logcat lines -----"
-  tail -n 80 "$OUT/logcat.txt" || true
+  echo "----- logcat lines about $PKG and its processes -----"
+  local pids
+  pids="$(grep -oE "Start proc [0-9]+:$PKG" "$OUT/logcat.txt" | grep -oE "[0-9]+" | sort -u | paste -sd'|' -)"
+  grep -E "$PKG|godot|lowmemorykiller|lmkd${pids:+| ($pids) |pid ($pids)|Killing ($pids):}" "$OUT/logcat.txt" | tail -n 150 || true
   exit 1
 }
 
@@ -48,9 +54,14 @@ crash_check() {
 }
 
 adb wait-for-device
+adb logcat -G 16M > /dev/null 2>&1 || true
 echo "Android $(adb shell getprop ro.build.version.release | tr -d '\r'), API $(adb shell getprop ro.build.version.sdk | tr -d '\r'), ABI $(adb shell getprop ro.product.cpu.abi | tr -d '\r')"
 
+echo "Letting the freshly booted emulator settle for ${BOOT_SETTLE_SECONDS}s"
+sleep "$BOOT_SETTLE_SECONDS"
+
 adb install -r -g "$APK" || fail "Installing $APK failed"
+sleep 5
 adb logcat -c
 
 activity="$(adb shell cmd package resolve-activity --brief "$PKG" | tail -n 1 | tr -d '\r')"
