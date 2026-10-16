@@ -29,10 +29,18 @@ fail() {
   exit 1
 }
 
+# Emulator images often log crashes of their own system apps (Play services
+# and the like), so only crashes that name our package or come from our
+# process count.
 crash_check() {
   adb logcat -d > "$OUT/logcat.txt"
-  local hits
-  hits="$(grep -nE "FATAL EXCEPTION|Fatal signal [0-9]+|ANR in $PKG|SCRIPT ERROR|Process: $PKG|Force finishing activity $PKG|$PKG.*has died" "$OUT/logcat.txt" || true)"
+  local hits pid
+  hits="$(grep -nE "ANR in $PKG|Process: $PKG|Force finishing activity $PKG|Process $PKG \(pid [0-9]+\) has died|Fatal signal [0-9]+.*$PKG" "$OUT/logcat.txt" || true)"
+  pid="$(adb shell pidof "$PKG" | tr -d '\r')"
+  if [ -n "$pid" ]; then
+    adb logcat -d --pid="$pid" > "$OUT/logcat-app.txt"
+    hits+="$(grep -nE "FATAL EXCEPTION|Fatal signal [0-9]+|SCRIPT ERROR" "$OUT/logcat-app.txt" || true)"
+  fi
   if [ -n "$hits" ]; then
     echo "$hits"
     fail "Crash or script error found in logcat ($1)"
