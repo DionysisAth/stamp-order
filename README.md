@@ -68,6 +68,7 @@ godot --headless --script res://tests/smoke_ui.gd    # opens every screen and pl
 | Tests | Unit tests, UI smoke test, and a check that `levels/` matches the generator |
 | Build debug APK | Exports `stamp-order-debug.apk` (arm64 + x86_64) and uploads it as an artifact |
 | Emulator startup test | Boots Android emulators (API 30 and 34), installs the APK, launches it and fails if the main menu never appears, the app stops running, or logcat shows a crash, ANR or script error. Logcat and a screenshot are uploaded |
+| Publish debug APK | On pushes to `main`, once both emulator tests pass, uploads the APK to the [latest-debug](https://github.com/DionysisAth/stamp-order/releases/tag/latest-debug) pre-release. Direct download, no sign-in: https://github.com/DionysisAth/stamp-order/releases/download/latest-debug/stamp-order-debug.apk |
 | Build Play Store AAB | Gradle build of the release `.aab` (arm64 + armv7) for Google Play, with the version code set from the run number. Skipped on pull requests |
 
 To sign the AAB for Google Play, add these repository secrets; without them the AAB is signed with a throwaway key and cannot be uploaded:
