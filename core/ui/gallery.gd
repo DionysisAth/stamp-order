@@ -2,6 +2,10 @@ extends Screen
 ## The gallery wall: every finished picture, framed, one wall per world.
 
 
+func background_key() -> String:
+	return "gallery"
+
+
 func build() -> void:
 	body.add_child(make_top_bar("Gallery"))
 	var scroll := ScrollContainer.new()
@@ -18,7 +22,10 @@ func build() -> void:
 		for level: Level in w["levels"]:
 			if Save.is_completed(level.id):
 				done += 1
-		walls.add_child(make_label("%s  ·  %d / %d" % [w["name"], done, w["levels"].size()], "", HORIZONTAL_ALIGNMENT_LEFT))
+		var header := Label.new()
+		header.text = "%s   %d / %d" % [w["name"], done, w["levels"].size()]
+		header.label_settings = UITheme.label_settings(38, Color.WHITE, 0, UITheme.INK, true)
+		walls.add_child(header)
 		var grid := GridContainer.new()
 		grid.columns = 5
 		grid.add_theme_constant_override("h_separation", 12)
@@ -31,10 +38,13 @@ func build() -> void:
 func _frame(level: Level, colorblind: bool) -> Control:
 	var frame := PanelContainer.new()
 	var done := Save.is_completed(level.id)
-	var sb := UITheme.box(UITheme.FRAME if done else UITheme.LINE, 6, done)
-	sb.set_content_margin_all(7)
-	if level.picture and done:
-		sb.bg_color = UITheme.GOLD.darkened(0.15)
+	var face := UITheme.world_color(level.world)
+	if level.picture:
+		face = UITheme.SUN
+	var sb := UITheme.candy(face, face.darkened(0.28), 16, 6) if done else UITheme.box(Color(1, 1, 1, 0.25), 16)
+	sb.set_content_margin_all(8)
+	if done:
+		sb.content_margin_bottom = 12
 	frame.add_theme_stylebox_override("panel", sb)
 	# Let touch drags reach the ScrollContainer.
 	frame.mouse_filter = Control.MOUSE_FILTER_PASS
@@ -46,9 +56,11 @@ func _frame(level: Level, colorblind: bool) -> Control:
 		pic.show_target(level)
 		frame.add_child(pic)
 	else:
-		var blank := ColorRect.new()
-		blank.color = Color("ebe4d8")
-		blank.custom_minimum_size = Vector2(110, 110)
-		blank.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var blank := Label.new()
+		blank.text = "?"
+		blank.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		blank.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		blank.label_settings = UITheme.label_settings(48, Color(1, 1, 1, 0.6))
+		blank.custom_minimum_size = Vector2(106, 106)
 		frame.add_child(blank)
 	return frame

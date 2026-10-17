@@ -18,7 +18,8 @@ var _title: Label
 var _level_name: Label
 var _tip: Label
 var _message: Label
-var _progress: Label
+var _progress: ProgressPips
+var _target_pill: Label
 var _target: CanvasView
 var _canvas: CanvasView
 var _tray: GridContainer
@@ -29,6 +30,10 @@ var _hint_btn: IconButton
 var _win: WinPanel
 var _started_at := 0
 var _quit_logged := false
+
+
+func background_key() -> String:
+	return "garden"
 
 
 func build() -> void:
@@ -45,40 +50,44 @@ func build() -> void:
 		bar.add_child(b)
 	body.add_child(bar)
 
+	var card := PanelContainer.new()
+	var csb := UITheme.box(UITheme.CARD, 30, true)
+	csb.set_content_margin_all(16)
+	card.add_theme_stylebox_override("panel", csb)
+	body.add_child(card)
 	var header := HBoxContainer.new()
-	header.add_theme_constant_override("separation", 20)
-	body.add_child(header)
-	var target_card := PanelContainer.new()
-	var tsb := UITheme.box(UITheme.CARD, 22, true)
-	tsb.set_content_margin_all(12)
-	target_card.add_theme_stylebox_override("panel", tsb)
-	header.add_child(target_card)
+	header.add_theme_constant_override("separation", 18)
+	card.add_child(header)
 	var tbox := VBoxContainer.new()
-	tbox.add_theme_constant_override("separation", 6)
-	target_card.add_child(tbox)
-	tbox.add_child(make_label("TARGET", "SubtleLabel"))
+	tbox.add_theme_constant_override("separation", 8)
+	header.add_child(tbox)
+	_target_pill = Label.new()
+	_target_pill.text = "TARGET"
+	_target_pill.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_target_pill.label_settings = UITheme.label_settings(22, Color.WHITE)
+	tbox.add_child(_target_pill)
 	_target = CanvasView.new()
 	_target.thumbnail = true
-	_target.custom_minimum_size = Vector2(236, 236)
+	_target.custom_minimum_size = Vector2(220, 220)
 	tbox.add_child(_target)
 
 	var info := VBoxContainer.new()
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	info.add_theme_constant_override("separation", 8)
 	header.add_child(info)
-	_level_name = make_label("", "", HORIZONTAL_ALIGNMENT_LEFT)
-	_level_name.add_theme_font_size_override("font_size", 34)
+	_level_name = Label.new()
+	_level_name.label_settings = UITheme.label_settings(36, UITheme.INK)
+	_level_name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	info.add_child(_level_name)
 	_tip = make_label("", "SubtleLabel", HORIZONTAL_ALIGNMENT_LEFT)
 	_tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_tip.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	info.add_child(_tip)
-	_message = make_label("", "", HORIZONTAL_ALIGNMENT_LEFT)
+	_message = Label.new()
 	_message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_message.add_theme_font_size_override("font_size", 26)
-	_message.add_theme_color_override("font_color", UITheme.ACCENT_DARK)
+	_message.label_settings = UITheme.label_settings(26, UITheme.ACCENT)
 	info.add_child(_message)
-	_progress = make_label("", "SubtleLabel", HORIZONTAL_ALIGNMENT_LEFT)
+	_progress = ProgressPips.new()
 	info.add_child(_progress)
 
 	_canvas = CanvasView.new()
@@ -121,6 +130,13 @@ func start_level(index: int, slide: bool) -> void:
 	_win.hide_panel()
 
 	var world := Levels.world_info(level.world)
+	var wc := UITheme.world_color(level.world)
+	background.colors = UITheme.world_gradient(level.world)
+	_progress.color = wc
+	var pill := UITheme.box(wc, 18)
+	pill.content_margin_top = 4
+	pill.content_margin_bottom = 4
+	_target_pill.add_theme_stylebox_override("normal", pill)
 	_title.text = "Level %s" % Levels.label(level)
 	_level_name.text = level.title if level.title != "" else str(world["name"])
 	_tip.text = level.tip
@@ -361,7 +377,8 @@ func _refresh() -> void:
 	_undo_btn.disabled = won or not stack.can_undo()
 	_restart_btn.disabled = won or presses.is_empty()
 	_hint_btn.disabled = won
-	_progress.text = "%d of %d stamps pressed" % [presses.size(), level.stamps.size()]
+	_progress.total = level.stamps.size()
+	_progress.done = presses.size()
 
 
 func _log_quit(reason: String) -> void:

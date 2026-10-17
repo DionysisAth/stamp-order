@@ -23,7 +23,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	var dim := ColorRect.new()
-	dim.color = Color(0.18, 0.14, 0.1, 0.45)
+	dim.color = Color(0.12, 0.04, 0.3, 0.55)
 	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(dim)
 	var center := CenterContainer.new()
@@ -37,13 +37,14 @@ func _ready() -> void:
 	_card.add_child(box)
 
 	_title = Label.new()
-	_title.theme_type_variation = "HeaderLabel"
+	_title.label_settings = UITheme.label_settings(48, UITheme.ACCENT, 0)
 	_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	box.add_child(_title)
 
 	var frame := PanelContainer.new()
-	var fsb := UITheme.box(UITheme.FRAME, 10, true)
-	fsb.set_content_margin_all(16)
+	var fsb := UITheme.candy(UITheme.FRAME, UITheme.FRAME.darkened(0.25), 18, 8)
+	fsb.set_content_margin_all(18)
 	frame.add_theme_stylebox_override("panel", fsb)
 	frame.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	box.add_child(frame)
@@ -52,7 +53,7 @@ func _ready() -> void:
 	_picture.custom_minimum_size = Vector2(300, 300)
 	frame.add_child(_picture)
 
-	_stars = StarsView.new(0, Vector2(300, 90))
+	_stars = StarsView.new(0, Vector2(330, 100))
 	_stars.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	box.add_child(_stars)
 
@@ -107,6 +108,10 @@ func show_result(level: Level, stars: int, has_next: bool, colorblind: bool) -> 
 	tw.tween_property(self, "modulate:a", 1.0, 0.2)
 	tw.tween_property(_card, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	_stars.pop_in(stars, 0.25)
+	var confetti := Confetti.new(size.x)
+	confetti.position = Vector2(size.x * 0.5, -30)
+	add_child(confetti)
+	confetti.burst()
 
 
 func hide_panel() -> void:

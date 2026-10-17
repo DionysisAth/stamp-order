@@ -25,16 +25,11 @@ var press_scale := 1.0:
 		press_scale = v
 		queue_redraw()
 var _pulse := 0.0
-var _grain := PackedVector2Array()
 var _pulse_tween: Tween
 
 
 func _init() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	var rng := RandomNumberGenerator.new()
-	rng.seed = 7
-	for i in 220:
-		_grain.append(Vector2(rng.randf(), rng.randf()))
 
 
 func _ready() -> void:
@@ -118,12 +113,27 @@ func _update_pulse() -> void:
 
 func _draw() -> void:
 	var r := paper_rect()
+	var radius := int(r.size.x * (0.05 if thumbnail else 0.035))
+	var paper := StyleBoxFlat.new()
+	paper.bg_color = Palettes.PAPER
+	paper.set_corner_radius_all(radius)
+	paper.anti_aliasing = true
 	if not thumbnail:
-		draw_rect(Rect2(r.position + Vector2(0, 6), r.size), Color(0.3, 0.22, 0.14, 0.12))
-	draw_rect(r, Palettes.PAPER)
+		paper.shadow_color = Color(0.12, 0.04, 0.32, 0.25)
+		paper.shadow_size = 14
+		paper.shadow_offset = Vector2(0, 8)
+	else:
+		paper.bg_color = Palettes.PAPER.darkened(0.015)
+		paper.set_border_width_all(2)
+		paper.border_color = UITheme.LINE
+	draw_style_box(paper, r)
 	if not thumbnail:
-		for g in _grain:
-			draw_circle(r.position + g * r.size, 1.2, Palettes.PAPER_SHADE)
+		# A faint dot grid, like craft paper, which also helps line things up.
+		var cell := cell_px()
+		var dot := maxf(1.2, cell * 0.06)
+		for y in range(1, BoardState.SIZE):
+			for x in range(1, BoardState.SIZE):
+				draw_circle(r.position + Vector2(x, y) * cell, dot, Palettes.PAPER_SHADE, true, -1.0, true)
 	if level == null:
 		return
 	for i in presses.size():
@@ -137,13 +147,12 @@ func _draw() -> void:
 		var stamp := level.stamps[ghost_stamp]
 		var col := Palettes.color(level.palette, stamp.color)
 		for spot in stamp.spot_count():
-			_draw_stamp(stamp, spot, ghost_rot, Color(col, 0.18 + 0.2 * _pulse), 1.0)
-			_draw_outline(stamp, spot, ghost_rot, Color(UITheme.INK, 0.55 + 0.35 * _pulse), 3.0)
+			_draw_stamp(stamp, spot, ghost_rot, Color(col, 0.22 + 0.22 * _pulse), 1.0)
+			_draw_outline(stamp, spot, ghost_rot, Color(UITheme.INK, 0.45 + 0.4 * _pulse), 3.5)
 	if not hint_pose.is_empty():
 		var stamp := level.stamps[hint_pose[0]]
-		_draw_outline(stamp, hint_pose[1], hint_pose[2], Color(UITheme.GOLD.darkened(0.2), 0.5 + 0.5 * _pulse), 5.0)
-	if not thumbnail:
-		draw_rect(r, Color(0, 0, 0, 0.06), false, 2.0)
+		_draw_outline(stamp, hint_pose[1], hint_pose[2], Color(UITheme.ACCENT, 0.55 + 0.45 * _pulse), 7.0)
+		_draw_outline(stamp, hint_pose[1], hint_pose[2], Color(Color.WHITE, 0.9), 2.5)
 
 
 func _stamp_points(stamp: StampDef, spot: int, rot: int, k: float, parts: Array) -> Array:
@@ -162,16 +171,32 @@ func _stamp_points(stamp: StampDef, spot: int, rot: int, k: float, parts: Array)
 	return out
 
 
-## Opaque ink uses the shape's own parts (keeping holes such as a cup
-## handle); translucent ghosts use the merged outline so overlapping parts
-## do not darken.
+## Opaque ink: a soft drop shadow, the shape's own parts (keeping holes such
+## as a cup handle), a lighter glossy inner face and a crisp darker rim.
+## Translucent ghosts use the merged outline so overlapping parts do not
+## darken.
 func _draw_stamp(stamp: StampDef, spot: int, rot: int, col: Color, k: float) -> void:
-	var opaque := col.a >= 1.0
-	var fill_parts := Shapes.polygons(stamp.shape, rot) if opaque else Shapes.merged(stamp.shape, rot)
-	for pts in _stamp_points(stamp, spot, rot, k, fill_parts):
+	if col.a < 1.0:
+		for pts in _stamp_points(stamp, spot, rot, k, Shapes.merged(stamp.shape, rot)):
+			draw_colored_polygon(pts, col)
+		return
+	var lift := Vector2(0, cell_px() * (0.1 if thumbnail else 0.16) * k)
+	for pts in _stamp_points(stamp, spot, rot, k, Shapes.merged(stamp.shape, rot)):
+		var shadow := PackedVector2Array()
+		for p in pts:
+			shadow.append(p + lift)
+		draw_colored_polygon(shadow, Color(0.15, 0.05, 0.35, 0.2))
+	for pts in _stamp_points(stamp, spot, rot, k, Shapes.polygons(stamp.shape, rot)):
 		draw_colored_polygon(pts, col)
-	if opaque and not thumbnail:
-		_draw_outline(stamp, spot, rot, col.darkened(0.12), 1.5, k)
+	var gloss := col.lightened(0.22)
+	var up := Vector2(0, -cell_px() * 0.07 * k)
+	for pts in _stamp_points(stamp, spot, rot, k, Shapes.inset(stamp.shape, rot, stamp.size, 0.32)):
+		var moved := PackedVector2Array()
+		for p in pts:
+			moved.append(p + up)
+		draw_colored_polygon(moved, gloss)
+	if not thumbnail:
+		_draw_outline(stamp, spot, rot, col.darkened(0.18), 2.0, k)
 
 
 func _draw_outline(stamp: StampDef, spot: int, rot: int, col: Color, width: float, k: float = 1.0) -> void:

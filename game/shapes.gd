@@ -19,6 +19,9 @@ const ROTATION_SYMMETRIC := ["square", "circle", "sun", "plate", "sparkle", "hed
 
 static var _poly_cache := {}
 static var _merged_cache := {}
+static var _inset_cache := {}
+## Shapes whose merged outline filled in a hole (e.g. the cup handle).
+static var _holed := {}
 static var _mask_cache := {}
 
 
@@ -60,6 +63,8 @@ static func merged(shape_name: String, rot: int = 0) -> Array:
 		while i < outs.size():
 			var res := Geometry2D.merge_polygons(cur, outs[i])
 			var solids := res.filter(func(q: PackedVector2Array) -> bool: return not Geometry2D.is_polygon_clockwise(q))
+			if solids.size() == 1 and res.size() > 1:
+				_holed[shape_name] = true
 			if solids.size() == 1:
 				cur = solids[0]
 				outs.remove_at(i)
@@ -69,6 +74,32 @@ static func merged(shape_name: String, rot: int = 0) -> Array:
 		outs.append(cur)
 	_merged_cache[key] = outs
 	return outs
+
+
+## The merged outline shrunk inwards by `cells` grid cells, in unit
+## coordinates, for the glossy inner highlight on a stamp of `size` cells.
+static func inset(shape_name: String, rot: int, size: int, cells: float) -> Array:
+	var key := "%s:%d:%d:%.2f" % [shape_name, rot, size, cells]
+	if _inset_cache.has(key):
+		return _inset_cache[key]
+	var out: Array = []
+	var outline := merged(shape_name, rot)
+	# Insetting a filled-in outline would paint over the hole; use the parts.
+	var source := polygons(shape_name, rot) if _holed.has(shape_name) else outline
+	for poly in source:
+		var scaled := PackedVector2Array()
+		for p in poly:
+			scaled.append(p * size)
+		for q in Geometry2D.offset_polygon(scaled, -cells, Geometry2D.JOIN_ROUND):
+			if Geometry2D.is_polygon_clockwise(q) or q.size() < 3:
+				continue
+			var unit := PackedVector2Array()
+			for p in q:
+				unit.append(p / size)
+			if Geometry2D.triangulate_polygon(unit).size() > 0:
+				out.append(unit)
+	_inset_cache[key] = out
+	return out
 
 
 ## Cells (local offsets inside a size×size box) covered by the shape.

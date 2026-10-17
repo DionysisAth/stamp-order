@@ -144,46 +144,62 @@ func _draw() -> void:
 	draw_set_transform(c, 0.0, Vector2(_press, _press))
 	var half := size * 0.5
 	var card := Rect2(-half, size)
-	var border := UITheme.LINE
-	if hinted:
-		border = UITheme.GOLD.lerp(UITheme.ACCENT, _pulse * 0.4)
-	elif selected:
-		border = UITheme.INK
-	var sb := UITheme.box(UITheme.CARD if not used else Color("ece5d9"), 24, not used, border)
-	if hinted or selected:
-		sb.set_border_width_all(5)
+	var sb: StyleBoxFlat
+	if used:
+		sb = UITheme.box(Color(1, 1, 1, 0.45), 26)
+	else:
+		sb = UITheme.candy(UITheme.CARD, UITheme.CARD_EDGE, 26, 7)
+		if hinted:
+			sb.set_border_width_all(6)
+			sb.border_width_bottom = 9
+			sb.border_color = UITheme.GOLD.lerp(UITheme.ACCENT, _pulse * 0.5)
+		elif selected:
+			sb.set_border_width_all(6)
+			sb.border_width_bottom = 9
+			sb.border_color = Palettes.color(palette, stamp.color).darkened(0.1)
 	draw_style_box(sb, card)
 
 	var col := Palettes.color(palette, stamp.color)
-	if used:
-		col = Color(col, 0.28)
-	var art := minf(size.x, size.y) * 0.66
+	var art := minf(size.x, size.y) * 0.64
 	var angle := deg_to_rad(_angle)
-	for poly in Shapes.polygons(stamp.shape, 0):
+	var lift := Vector2(0, art * 0.035) if not used else Vector2(0, -art * 0.02)
+	var to_card := func(poly: PackedVector2Array, offset: Vector2) -> PackedVector2Array:
 		var pts := PackedVector2Array()
 		for u in poly:
-			pts.append(((u - Vector2(0.5, 0.5)) * art).rotated(angle))
-		draw_colored_polygon(pts, col)
+			pts.append(((u - Vector2(0.5, 0.5)) * art).rotated(angle) + offset)
+		return pts
+	if used:
+		for poly in Shapes.polygons(stamp.shape, 0):
+			draw_colored_polygon(to_card.call(poly, lift), Color(col, 0.3))
+	else:
+		for poly in Shapes.merged(stamp.shape, 0):
+			draw_colored_polygon(to_card.call(poly, lift + Vector2(0, art * 0.04)), Color(0.15, 0.05, 0.35, 0.18))
+		for poly in Shapes.polygons(stamp.shape, 0):
+			draw_colored_polygon(to_card.call(poly, lift), col)
+		for poly in Shapes.inset(stamp.shape, 0, stamp.size, 0.32):
+			draw_colored_polygon(to_card.call(poly, lift - Vector2(0, art * 0.02)), col.lightened(0.22))
 	if colorblind and not used:
-		InkSymbols.draw(self, stamp.color, Vector2.ZERO, art * 0.1, Palettes.contrast(col))
+		InkSymbols.draw(self, stamp.color, lift, art * 0.1, Palettes.contrast(col))
 
 	var s := minf(size.x, size.y)
 	if stamp.rotatable and not used:
-		_draw_rotate_badge(Vector2(half.x, -half.y) + Vector2(-s * 0.17, s * 0.17), s * 0.12)
+		_draw_rotate_badge(Vector2(half.x, -half.y) + Vector2(-s * 0.15, s * 0.15), s * 0.13)
 	if stamp.spot_count() > 1 and not used:
-		var bc := half - Vector2(s * 0.17, s * 0.17)
-		draw_circle(bc + Vector2(-s * 0.05, 0), s * 0.04, UITheme.INK, true, -1.0, true)
-		draw_circle(bc + Vector2(s * 0.05, 0), s * 0.04, UITheme.INK, true, -1.0, true)
+		var bc := Vector2(half.x, half.y) - Vector2(s * 0.19, s * 0.2)
+		draw_style_box(UITheme.box(UITheme.SKY, int(s * 0.08)), Rect2(bc - Vector2(s * 0.13, s * 0.075), Vector2(s * 0.26, s * 0.15)))
+		draw_circle(bc + Vector2(-s * 0.055, 0), s * 0.035, Color.WHITE, true, -1.0, true)
+		draw_circle(bc + Vector2(s * 0.055, 0), s * 0.035, Color.WHITE, true, -1.0, true)
 	if used:
-		var w := s * 0.06
-		draw_polyline(PackedVector2Array([Vector2(-s * 0.16, 0), Vector2(-s * 0.04, s * 0.12), Vector2(s * 0.18, -s * 0.12)]), Color(UITheme.INK, 0.6), w, true)
+		var w := s * 0.075
+		draw_circle(Vector2.ZERO, s * 0.2, UITheme.MINT, true, -1.0, true)
+		draw_polyline(PackedVector2Array([Vector2(-s * 0.09, 0), Vector2(-s * 0.02, s * 0.07), Vector2(s * 0.1, -s * 0.07)]), Color.WHITE, w, true)
 	draw_set_transform(Vector2.ZERO)
 
 
 func _draw_rotate_badge(center: Vector2, r: float) -> void:
-	draw_circle(center, r * 1.25, UITheme.BG, true, -1.0, true)
-	draw_arc(center, r * 0.75, deg_to_rad(-60), deg_to_rad(220), 16, UITheme.INK, r * 0.28, true)
-	var tip := center + Vector2.from_angle(deg_to_rad(-60)) * r * 0.75
+	draw_circle(center, r * 1.25, UITheme.ACCENT, true, -1.0, true)
+	draw_arc(center, r * 0.7, deg_to_rad(-60), deg_to_rad(220), 16, Color.WHITE, r * 0.26, true)
+	var tip := center + Vector2.from_angle(deg_to_rad(-60)) * r * 0.7
 	var dir := Vector2.from_angle(deg_to_rad(30))
-	var side := Vector2(-dir.y, dir.x) * r * 0.4
-	draw_colored_polygon(PackedVector2Array([tip + dir * r * 0.5, tip + side, tip - side]), UITheme.INK)
+	var side := Vector2(-dir.y, dir.x) * r * 0.38
+	draw_colored_polygon(PackedVector2Array([tip + dir * r * 0.48, tip + side, tip - side]), Color.WHITE)

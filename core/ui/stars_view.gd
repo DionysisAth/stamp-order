@@ -8,7 +8,7 @@ var count := 0:
 		count = v
 		queue_redraw()
 var star_scales: Array[float] = [1.0, 1.0, 1.0]
-var empty_color := Color(0.18, 0.16, 0.14, 0.14)
+var empty_color := Color(0.17, 0.14, 0.28, 0.15)
 
 
 func _init(p_count: int = 0, p_size: Vector2 = Vector2(120, 40)) -> void:
@@ -28,9 +28,20 @@ func _draw() -> void:
 			var rr := sr if k % 2 == 0 else sr * 0.45
 			var a := -PI / 2 + PI * k / 5
 			pts.append(c + Vector2(cos(a), sin(a)) * rr)
-		var col := UITheme.GOLD if i < count else empty_color
-		if sr > 0.5:
-			draw_colored_polygon(pts, col)
+		if sr <= 0.5:
+			continue
+		if i < count:
+			var shadow := PackedVector2Array()
+			for p in pts:
+				shadow.append(p + Vector2(0, sr * 0.12))
+			draw_colored_polygon(shadow, UITheme.GOLD_DARK)
+			draw_colored_polygon(pts, UITheme.GOLD)
+			var shine := PackedVector2Array()
+			for p in pts:
+				shine.append(c + (p - c) * 0.55 - Vector2(0, sr * 0.08))
+			draw_colored_polygon(shine, Color(1, 1, 1, 0.35))
+		else:
+			draw_colored_polygon(pts, empty_color)
 
 
 func pop_in(p_count: int, delay: float = 0.0) -> void:

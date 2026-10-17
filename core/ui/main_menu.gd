@@ -19,50 +19,100 @@ var _logo_board := BoardState.new()
 var _logo_presses: Array = []
 
 
+const TITLE_COLORS := ["ff3d7f", "ffc61a", "2ee6a6", "4dabff", "b14dff", "ff8a00"]
+
+
 func build() -> void:
-	body.add_theme_constant_override("separation", 16)
+	body.add_theme_constant_override("separation", 14)
 	var top_space := Control.new()
-	top_space.custom_minimum_size = Vector2(0, 20)
+	top_space.custom_minimum_size = Vector2(0, 8)
 	body.add_child(top_space)
 
 	_logo_level = Level.from_dict(LOGO)
 	_logo = CanvasView.new()
-	_logo.custom_minimum_size = Vector2(300, 300)
+	_logo.custom_minimum_size = Vector2(280, 280)
 	_logo.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	_logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_logo.pivot_offset = Vector2(150, 150)
-	_logo.rotation = deg_to_rad(-3)
+	_logo.pivot_offset = Vector2(140, 140)
+	_logo.rotation = deg_to_rad(-4)
 	_logo.show_level(_logo_level, _logo_presses, _logo_board)
 	body.add_child(_logo)
 
-	body.add_child(make_label("Stamp Order", "TitleLabel"))
-	body.add_child(make_label("Press the stamps in the right order\nto recreate each picture.", "SubtleLabel"))
+	body.add_child(_title_word("STAMP", 0, 112))
+	body.add_child(_title_word("ORDER", 3, 112))
+	body.add_child(make_label("Press the stamps in the right order\nto recreate each picture.", "OnColorLabel"))
 
 	var spacer := Control.new()
 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	body.add_child(spacer)
 
 	var idx := Levels.continue_index()
-	var play := make_button("Play", func() -> void: Router.goto("game", {"index": idx}), "AccentButton")
-	play.custom_minimum_size = Vector2(0, 120)
+	var play := make_button("PLAY", func() -> void: Router.goto("game", {"index": idx}), "SunButton")
+	play.custom_minimum_size = Vector2(0, 132)
 	body.add_child(play)
+	_breathe(play)
 	if Levels.count() > 0:
 		var lvl := Levels.get_level(idx)
-		body.add_child(make_label("Next up: level %s" % Levels.label(lvl), "SubtleLabel"))
-	body.add_child(make_button("Levels", func() -> void: Router.goto("levels")))
-	body.add_child(make_button("Gallery", func() -> void: Router.goto("gallery")))
+		body.add_child(make_label("Next up: level %s" % Levels.label(lvl), "OnColorLabel"))
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 14)
+	body.add_child(row)
+	for spec in [["Levels", "levels"], ["Gallery", "gallery"]]:
+		var target: String = spec[1]
+		var b := make_button(spec[0], func() -> void: Router.goto(target))
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(b)
 	body.add_child(make_button("Settings", func() -> void: Router.goto("settings")))
 
 	var footer := HBoxContainer.new()
 	footer.alignment = BoxContainer.ALIGNMENT_CENTER
-	var star := StarsView.new(1, Vector2(40, 40))
+	footer.add_theme_constant_override("separation", 8)
+	var star := StarsView.new(1, Vector2(48, 48))
 	star.slots = 1
 	footer.add_child(star)
-	footer.add_child(make_label("%d / %d" % [Save.total_stars(), Levels.count() * 3], "SubtleLabel"))
+	var count := Label.new()
+	count.text = "%d / %d" % [Save.total_stars(), Levels.count() * 3]
+	count.label_settings = UITheme.label_settings(34, Color.WHITE, 0, UITheme.INK, true)
+	footer.add_child(count)
 	body.add_child(footer)
 
 	_stamp_logo()
 	print("STAMP_ORDER_READY")
+
+
+## A word of chunky letters, each in its own ink colour with a white rim,
+## tilted a little like hand-pressed stamps. They pop in one by one.
+func _title_word(word: String, color_offset: int, font_size: int) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override("separation", 0)
+	row.custom_minimum_size = Vector2(0, font_size * 0.95)
+	for i in word.length():
+		var l := Label.new()
+		l.text = word[i]
+		l.label_settings = UITheme.label_settings(font_size, Color(TITLE_COLORS[(i + color_offset) % TITLE_COLORS.size()]), 22, Color.WHITE, true)
+		l.label_settings.shadow_size = 2
+		l.label_settings.shadow_offset = Vector2(0, 8)
+		l.label_settings.shadow_color = Color(0.15, 0.04, 0.4, 0.35)
+		l.custom_minimum_size = Vector2(font_size * 0.66, 0)
+		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		row.add_child(l)
+		var tilt := deg_to_rad([-6.0, 4.0, -3.0, 6.0, -4.0][(i + color_offset) % 5])
+		l.rotation = tilt
+		l.scale = Vector2.ZERO
+		l.resized.connect(func() -> void: l.pivot_offset = l.size * 0.5)
+		var tw := create_tween()
+		tw.tween_interval(0.25 + (i + color_offset) * 0.07)
+		tw.tween_property(l, "scale", Vector2.ONE, 0.35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	return row
+
+
+## Gently pulses a control to draw the eye.
+func _breathe(c: Control) -> void:
+	c.resized.connect(func() -> void: c.pivot_offset = c.size * 0.5)
+	var tw := create_tween().set_loops()
+	tw.tween_property(c, "scale", Vector2(1.03, 1.03), 0.7).set_trans(Tween.TRANS_SINE)
+	tw.tween_property(c, "scale", Vector2.ONE, 0.7).set_trans(Tween.TRANS_SINE)
 
 
 func _stamp_logo() -> void:

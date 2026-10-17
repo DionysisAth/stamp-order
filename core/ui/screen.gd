@@ -4,6 +4,7 @@ extends Control
 ## safe area (notches) and offers small builders for common widgets.
 
 var body: VBoxContainer
+var background: FancyBackground
 var _margin: MarginContainer
 
 
@@ -12,11 +13,8 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	var bg := ColorRect.new()
-	bg.color = UITheme.BG
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(bg)
+	background = FancyBackground.new(UITheme.gradient(background_key()))
+	add_child(background)
 	_margin = MarginContainer.new()
 	_margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_margin)
@@ -26,6 +24,11 @@ func _ready() -> void:
 	_apply_safe_area()
 	get_viewport().size_changed.connect(_apply_safe_area)
 	build()
+
+
+## Which gradient from UITheme.GRADIENTS the page sits on.
+func background_key() -> String:
+	return "menu"
 
 
 ## Override to create the page's widgets inside `body`.

@@ -2,14 +2,16 @@ class_name Palettes
 extends RefCounted
 ## Curated ink palettes. Colour id 0 is always bare paper; ids 1..8 are inks.
 
-const PAPER := Color("f4efe6")
-const PAPER_SHADE := Color("e6dfd2")
-const INK := Color("2e2a26")
+const PAPER := Color("fffdf7")
+const PAPER_SHADE := Color("f1ecff")
+const INK := Color("2b2347")
 
+## Bright, saturated inks that pop on white paper. Every colour in a palette
+## is clearly different in hue so pictures stay readable.
 const PALETTES := {
-	"garden": ["5b8e3e", "e07a9f", "f2c14e", "4a90c2", "e8833a", "8e6bbf", "2e7d74", "c8423b"],
-	"kitchen": ["d9483b", "f3c94d", "6fbf8e", "7e4e8c", "3d5a99", "f29e6d", "8a9a3b", "7a5236"],
-	"night": ["e8c547", "263a73", "2fa39b", "d9627f", "7d8ba6", "ee8b3a", "7b57b8", "6cb4e4"],
+	"garden": ["3ddc6a", "ff4fa3", "ffc61a", "2f9bff", "ff7a1f", "a45bff", "12d6c5", "ff3b3b"],
+	"kitchen": ["ff4a3d", "ffd21f", "2ee6a6", "b14dff", "3d7bff", "ff8fab", "a3e635", "ff8a00"],
+	"night": ["ffcc00", "4d6bff", "17e3c7", "ff4fa3", "c084fc", "ff8a1f", "7c3aed", "38d1ff"],
 }
 
 ## Colourblind symbols, one per colour id (index 0 = paper, unused).

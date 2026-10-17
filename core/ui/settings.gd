@@ -5,6 +5,10 @@ var _confirm: ConfirmationDialog
 var _swatches: HBoxContainer
 
 
+func background_key() -> String:
+	return "settings"
+
+
 func build() -> void:
 	body.add_child(make_top_bar("Settings"))
 	var card := PanelContainer.new()
@@ -28,7 +32,7 @@ func build() -> void:
 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	body.add_child(spacer)
 	body.add_child(make_button("Reset progress", _ask_reset))
-	body.add_child(make_label("Stamp Order %s" % ProjectSettings.get_setting("application/config/version", ""), "SubtleLabel"))
+	body.add_child(make_label("Stamp Order %s" % ProjectSettings.get_setting("application/config/version", ""), "OnColorLabel"))
 
 	_confirm = ConfirmationDialog.new()
 	_confirm.dialog_text = "Erase all stars and unlocked levels?"
@@ -67,10 +71,12 @@ class Swatch extends Control:
 	var show_symbol := false
 
 	func _init() -> void:
-		custom_minimum_size = Vector2(64, 64)
+		custom_minimum_size = Vector2(66, 66)
 
 	func _draw() -> void:
 		var col := Palettes.color("garden", color_id)
-		draw_circle(size * 0.5, size.x * 0.45, col, true, -1.0, true)
+		draw_circle(size * 0.5 + Vector2(0, 3), size.x * 0.42, col.darkened(0.25), true, -1.0, true)
+		draw_circle(size * 0.5, size.x * 0.42, col, true, -1.0, true)
+		draw_circle(size * 0.5 - Vector2(size.x * 0.1, size.x * 0.12), size.x * 0.12, Color(1, 1, 1, 0.45), true, -1.0, true)
 		if show_symbol:
 			InkSymbols.draw(self, color_id, size * 0.5, size.x * 0.2, Palettes.contrast(col))
