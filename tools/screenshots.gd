@@ -30,33 +30,38 @@ func _run() -> void:
 	await _shot(out_dir, "01_menu", 90)
 	router.goto("levels", {"world": 1})
 	await _shot(out_dir, "02_levels")
+	# Plan mode: a half-built plan with numbered outlines.
 	router.goto("game", {"index": 6})
-	await _shot(out_dir, "03_game")
+	await _shot(out_dir, "03_plan", 30)
 	var game: Node = current_scene
 	var plan: Array = game.level.solution_presses()
 	game._on_stamp_tapped(plan[0][0])
 	game._on_stamp_tapped(plan[1][0])
-	await _shot(out_dir, "04_game_two_pressed", 30)
+	await _shot(out_dir, "04_plan_two_queued", 30)
+	# A wrong plan, stamped: the bad slot is marked.
+	game._on_restart()
+	for k in range(plan.size() - 1, -1, -1):
+		game._on_stamp_tapped(plan[k][0])
+	game.stamp_interval = 0.0
+	game._on_stamp_go()
+	await _shot(out_dir, "05_failed_run", 30)
+	game._on_restart()
 	game._on_hint()
-	await _shot(out_dir, "05_hint", 20)
-	game.start_level(21, false)
-	var two := -1
-	for i in game.level.stamps.size():
-		if game.level.stamps[i].spot_count() > 1:
-			two = i
-	game._on_stamp_tapped(two)
-	await _shot(out_dir, "06_two_spots", 20)
-	game.start_level(42, false)
-	save.set_setting("colorblind", true)
-	await _shot(out_dir, "07_rotation_colorblind", 20)
-	save.set_setting("colorblind", false)
+	await _shot(out_dir, "06_hint_look_here", 20)
+	game._on_hint()
+	await _shot(out_dir, "07_hint_stamp", 20)
+	# The eraser intro (level 21) and a spare-stamp level (10).
+	game.start_level(20, false)
+	await _shot(out_dir, "08_eraser", 20)
 	game.start_level(9, false)
+	await _shot(out_dir, "09_spare", 20)
+	# Win replay with numbered layers.
+	game.start_level(14, false)
 	for p in game.level.solution_presses():
 		game._on_stamp_tapped(p[0])
-	await _shot(out_dir, "08_win", 120)
-	router.goto("gallery")
-	await _shot(out_dir, "09_gallery")
-	router.goto("settings")
-	await _shot(out_dir, "10_settings")
+	game._on_stamp_go()
+	await _shot(out_dir, "10_win", 150)
+	router.goto("levels", {"world": 4})
+	await _shot(out_dir, "11_levels_w4")
 	save.reset_progress()
 	quit()

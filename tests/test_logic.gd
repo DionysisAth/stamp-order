@@ -117,3 +117,41 @@ func test_analyse_depth() -> void:
 	var info := Solver.analyse(level, level.solution_presses())
 	check_eq(Solver.depth(info["edges"], 3), 2, "a chain of three has depth 2")
 	check_eq(int(info["visible"][2]), 25, "top stamp is fully visible")
+
+
+func test_spare_stamp_is_left_out() -> void:
+	var level := _level([_s("square", 5, 1, 0, 0), _s("circle", 5, 2, 3, 3), _s("square", 4, 3, 10, 10)], [[0, 0], [1, 0]])
+	check_eq(level.spares(), [2], "stamp 2 is a spare")
+	var plan: Variant = Solver.solve_level(level)
+	check(plan != null and plan.size() == 2, "solution leaves the spare out")
+	check(Solver.solve_level(level, {}, [2]) == null, "no solution uses the spare")
+	var b := BoardState.new()
+	b.press(level.stamps[2], 0, 0)
+	check(not Solver.reachable(level, b, [2]), "pressing the spare breaks the picture")
+
+
+func test_eraser_cuts_paper() -> void:
+	var eraser := _s("square", 4, 0, 2, 2)
+	var level := _level([_s("square", 8, 1, 0, 0), eraser, _s("square", 4, 2, 4, 4)], [[0, 0], [1, 0], [2, 0]])
+	check(level.uses_eraser(), "level uses an eraser")
+	var t := level.target()
+	check_eq(t.get_at(2, 2), 0, "eraser leaves bare paper")
+	check_eq(t.get_at(5, 5), 2, "a later stamp covers part of the hole")
+	check(Solver.erased_cells(level, 1) >= 4, "eraser cut real ink")
+	var plan: Variant = Solver.solve_level(level)
+	check(plan != null, "eraser level is solvable")
+	check_eq(Solver.first_wrong(level, [[1, 0, 0], [0, 0, 0]]), 0, "erasing blank paper first wastes the eraser")
+	check_eq(Solver.first_wrong(level, [[0, 0, 0], [2, 0, 0], [1, 0, 0]]), 1, "pressing the top stamp before the eraser is the mistake")
+
+
+func test_twin_colours() -> void:
+	var level := _level([_s("square", 6, 1, 0, 0), _s("circle", 6, 1, 3, 3), _s("square", 5, 2, 6, 6)], [[0, 0], [1, 0], [2, 0]])
+	check(level.uses_twins(), "two stamps share a colour")
+	check(Solver.solve_level(level) != null, "twin level is solvable")
+
+
+func test_count_orders() -> void:
+	var chain := _level([_s("square", 5, 1, 0, 0), _s("square", 5, 2, 3, 3), _s("square", 5, 3, 6, 6)], [[0, 0], [1, 0], [2, 0]])
+	check_eq(Solver.count_orders(chain, chain.solution_presses()), 1, "a chain has one order")
+	var free := _level([_s("square", 4, 1, 0, 0), _s("square", 4, 2, 6, 0), _s("square", 4, 3, 12, 0)], [[0, 0], [1, 0], [2, 0]])
+	check_eq(Solver.count_orders(free, free.solution_presses()), 6, "three separate stamps have 3! orders")

@@ -2,7 +2,9 @@
 
 A chill puzzle game for Android and iOS. The player sees a finished picture made of overlapping coloured stamps and must press the stamps in the order that recreates it. Built with **Godot 4.7** and GDScript.
 
-This is the **MVP** test build: 60 levels in 3 worlds, undo and restart, stars, hints, two-spot and rotation twists, a gallery wall, colourblind mode, local save, basic sound and haptics, and local analytics.
+This is the **MVP** test build: 60 levels in 4 worlds of 15. Levels 1–4 are pressed live; from level 5 the player plans the whole order and then hits **STAMP!**. A new mechanic arrives every 5 levels (plan & stamp, spare stamps, two spots, the eraser, twin colours, rotation). Also: a perfect seal, two-step hints, a win replay with numbered layers, a gallery wall, colourblind mode, local save, sound, haptics and local analytics.
+
+The design plan lives in [docs/PLAN.md](docs/PLAN.md).
 
 ## Running it
 
@@ -25,7 +27,8 @@ game/            Stamp Order itself
   shapes.gd      vector stamp shapes; grid masks are sampled from them
   solver.gd      peels layers off the target: hints, solvability, analysis
   game_controller.gd, canvas_view.gd, stamp_button.gd   the play screen
-levels/          world_1.json … world_3.json (generated, then committed)
+levels/          world_1.json … world_4.json (generated, then committed)
+docs/            PLAN.md, the current design and roadmap
 tools/           editor-only: level generator, hand-made levels, level lab,
                  preview and screenshot renderers
 tests/           headless unit tests and a UI smoke test
@@ -36,7 +39,7 @@ Only press commands on the undo stack change the game state, so every move can b
 
 ## Levels
 
-Levels 1 to 5 and every 10th "picture" level are hand-made (`tools/handmade_levels.gd`); the rest come from the generator, which builds hundreds of candidates per slot, rejects unreadable ones (any stamp showing fewer than 4 cells, decoy spots or rotations that also solve the level), scores them and picks one to fit the world's difficulty curve.
+Levels 1 to 5 and the picture level that ends each world are hand-made (`tools/handmade_levels.gd`). The rest come from the generator. It builds hundreds of candidates per slot, chaining stamps so the order is forced, and rejects unreadable ones (a stamp showing fewer than 4 cells, an eraser that cuts too little, a spare or decoy that could also solve the level). It scores the rest by how much reasoning they need (few valid orders, sliver clues, depth, twists). Harder slots only accept puzzles with one or two valid orders.
 
 ```sh
 # Rebuild levels/*.json (deterministic; CI checks the committed files match)

@@ -86,17 +86,15 @@ func _ready() -> void:
 		row.add_child(b)
 
 
-func show_result(level: Level, stars: int, has_next: bool, colorblind: bool) -> void:
+## Shows the result and replays the player's own order, numbering each
+## layer, so they can see the structure they worked out.
+func show_result(level: Level, stars: int, has_next: bool, colorblind: bool, order: Array = [], reason: String = "") -> void:
 	_title.text = "Framed for the gallery!" if level.picture else "Solved!"
 	_picture.colorblind = colorblind
-	_picture.show_target(level)
-	match stars:
-		3:
-			_reason.text = "Perfect: no undos, no hints."
-		2:
-			_reason.text = "Solved with undos. Try it clean for 3 stars."
-		_:
-			_reason.text = "Solved with a hint. Replay without one for more stars."
+	if order.is_empty():
+		order = level.solution_presses()
+	_replay(level, order)
+	_reason.text = reason if reason != "" else "Solved!"
 	_next.visible = has_next
 	if not has_next:
 		_title.text = "Every picture is framed!"
@@ -112,6 +110,21 @@ func show_result(level: Level, stars: int, has_next: bool, colorblind: bool) -> 
 	confetti.position = Vector2(size.x * 0.5, -30)
 	add_child(confetti)
 	confetti.burst()
+
+
+func _replay(level: Level, order: Array) -> void:
+	var board := BoardState.new()
+	var shown: Array = []
+	_picture.show_level(level, shown, board)
+	_picture.numbered = true
+	var tw := create_tween()
+	tw.tween_interval(0.45)
+	for p in order:
+		tw.tween_callback(func() -> void:
+			shown.append(p)
+			board.press(level.stamps[p[0]], p[1], p[2])
+			_picture.queue_redraw())
+		tw.tween_interval(0.22)
 
 
 func hide_panel() -> void:

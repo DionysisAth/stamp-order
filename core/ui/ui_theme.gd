@@ -26,12 +26,13 @@ const GRADIENTS := {
 	"garden": [Color("16c79a"), Color("5ad1ff")],
 	"kitchen": [Color("ff8a3d"), Color("ff4f8b")],
 	"night": [Color("2b2f8f"), Color("9b4dff")],
+	"toybox": [Color("ff5f6d"), Color("ffc371")],
 	"gallery": [Color("ff9f43"), Color("ff4f8b")],
 	"settings": [Color("3d8bff"), Color("8b5cff")],
 }
 
 ## World accent colours (tiles, badges), by world number.
-const WORLD_COLORS := [Color("16c79a"), Color("ff7a3d"), Color("7c4dff")]
+const WORLD_COLORS := [Color("16c79a"), Color("ff7a3d"), Color("7c4dff"), Color("ff3d7f")]
 
 static var _font: Font
 static var _bold: Font
@@ -63,11 +64,11 @@ static func gradient(key: String) -> Array:
 
 
 static func world_gradient(world: int) -> Array:
-	return gradient(["garden", "kitchen", "night"][clampi(world - 1, 0, 2)])
+	return gradient(["garden", "kitchen", "night", "toybox"][clampi(world - 1, 0, 3)])
 
 
 static func world_color(world: int) -> Color:
-	return WORLD_COLORS[clampi(world - 1, 0, 2)]
+	return WORLD_COLORS[clampi(world - 1, 0, WORLD_COLORS.size() - 1)]
 
 
 static func box(color: Color, radius: int = 22, shadow: bool = false, border: Color = Color.TRANSPARENT) -> StyleBoxFlat:

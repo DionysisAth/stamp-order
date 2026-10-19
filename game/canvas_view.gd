@@ -19,6 +19,12 @@ var ghost_stamp := -1
 var ghost_rot := 0
 ## A pose to highlight for a hint: [stamp, spot, rot], or [].
 var hint_pose: Array = []
+## Planned presses drawn as numbered outlines (plan mode), or [].
+var plan_outlines: Array = []
+## Draw a layer number on every pressed stamp (win replay).
+var numbered := false
+## Cells to circle as a "look here" clue, or [].
+var clue_cells: Array = []
 
 var press_scale := 1.0:
 	set(v):
@@ -42,6 +48,8 @@ func show_level(p_level: Level, p_presses: Array, p_board: BoardState) -> void:
 	board = p_board
 	ghost_stamp = -1
 	hint_pose = []
+	clue_cells = []
+	plan_outlines = []
 	press_scale = 1.0
 	_update_pulse()
 	queue_redraw()
@@ -61,6 +69,12 @@ func set_ghost(stamp_index: int, rot: int) -> void:
 
 func set_hint(pose: Array) -> void:
 	hint_pose = pose
+	_update_pulse()
+	queue_redraw()
+
+
+func set_clue(cells: Array) -> void:
+	clue_cells = cells
 	_update_pulse()
 	queue_redraw()
 
@@ -97,7 +111,7 @@ func shake() -> void:
 
 
 func _update_pulse() -> void:
-	var want := ghost_stamp >= 0 or not hint_pose.is_empty()
+	var want := ghost_stamp >= 0 or not hint_pose.is_empty() or not clue_cells.is_empty()
 	if want and _pulse_tween == null:
 		_pulse_tween = create_tween().set_loops()
 		_pulse_tween.tween_method(func(v: float) -> void:
@@ -143,9 +157,19 @@ func _draw() -> void:
 		_draw_stamp(stamp, p[1], p[2], Palettes.color(level.palette, stamp.color), k)
 	if colorblind and board != null:
 		_draw_symbols(r)
+	for i in plan_outlines.size():
+		var p: Array = plan_outlines[i]
+		var stamp := level.stamps[p[0]]
+		var col := Palettes.color(level.palette, stamp.color) if not stamp.is_eraser() else UITheme.INK_SOFT
+		_draw_outline(stamp, p[1], p[2], Color(col, 0.9), 3.5)
+		_draw_badge(r.position + stamp.center(p[1]) * cell_px(), i + 1, col.darkened(0.15))
+	if numbered and not presses.is_empty():
+		_draw_layer_numbers(r)
+	if not clue_cells.is_empty():
+		_draw_clue(r)
 	if ghost_stamp >= 0:
 		var stamp := level.stamps[ghost_stamp]
-		var col := Palettes.color(level.palette, stamp.color)
+		var col := Palettes.color(level.palette, stamp.color) if not stamp.is_eraser() else UITheme.INK
 		for spot in stamp.spot_count():
 			_draw_stamp(stamp, spot, ghost_rot, Color(col, 0.22 + 0.22 * _pulse), 1.0)
 			_draw_outline(stamp, spot, ghost_rot, Color(UITheme.INK, 0.45 + 0.4 * _pulse), 3.5)
@@ -176,6 +200,13 @@ func _stamp_points(stamp: StampDef, spot: int, rot: int, k: float, parts: Array)
 ## Translucent ghosts use the merged outline so overlapping parts do not
 ## darken.
 func _draw_stamp(stamp: StampDef, spot: int, rot: int, col: Color, k: float) -> void:
+	if stamp.is_eraser() and col.a >= 1.0:
+		# The eraser presses bare paper: a clean cut with a faint rim.
+		for pts in _stamp_points(stamp, spot, rot, k, Shapes.polygons(stamp.shape, rot)):
+			draw_colored_polygon(pts, Palettes.PAPER)
+		if not thumbnail:
+			_draw_outline(stamp, spot, rot, Palettes.PAPER_SHADE, 2.0, k)
+		return
 	if col.a < 1.0:
 		for pts in _stamp_points(stamp, spot, rot, k, Shapes.merged(stamp.shape, rot)):
 			draw_colored_polygon(pts, col)
@@ -204,6 +235,54 @@ func _draw_outline(stamp: StampDef, spot: int, rot: int, col: Color, width: floa
 		var closed: PackedVector2Array = pts.duplicate()
 		closed.append(pts[0])
 		draw_polyline(closed, col, width, true)
+
+
+func _draw_badge(at: Vector2, number: int, col: Color) -> void:
+	var rad := maxf(11.0, cell_px() * 0.55)
+	draw_circle(at + Vector2(0, 2), rad, Color(0.1, 0.03, 0.3, 0.25), true, -1.0, true)
+	draw_circle(at, rad, Color.WHITE, true, -1.0, true)
+	draw_arc(at, rad, 0, TAU, 24, col, maxf(2.0, rad * 0.16), true)
+	var font := UITheme.bold()
+	var fs := int(rad * 1.2)
+	var txt := str(number)
+	var w := font.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+	draw_string(font, at + Vector2(-w * 0.5, fs * 0.36), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, UITheme.INK)
+
+
+## Layer numbers at the middle of each stamp's visible part.
+func _draw_layer_numbers(r: Rect2) -> void:
+	var top := {}
+	for i in presses.size():
+		var p: Array = presses[i]
+		for c in level.stamps[p[0]].cells(p[1], p[2]):
+			top[c] = i
+	var sums := {}
+	for c in top:
+		var i: int = top[c]
+		if not sums.has(i):
+			sums[i] = [Vector2.ZERO, 0]
+		sums[i][0] += Vector2(c) + Vector2(0.5, 0.5)
+		sums[i][1] += 1
+	for i in sums:
+		var centre: Vector2 = sums[i][0] / sums[i][1]
+		var stamp := level.stamps[presses[i][0]]
+		var col := Palettes.color(level.palette, stamp.color) if not stamp.is_eraser() else UITheme.INK_SOFT
+		_draw_badge(r.position + centre * cell_px(), i + 1, col.darkened(0.15))
+
+
+## A pulsing ring around the clue cells: "look here".
+func _draw_clue(r: Rect2) -> void:
+	var sum := Vector2.ZERO
+	for c in clue_cells:
+		sum += Vector2(c) + Vector2(0.5, 0.5)
+	var centre: Vector2 = sum / clue_cells.size()
+	var rad := 1.2
+	for c in clue_cells:
+		rad = maxf(rad, centre.distance_to(Vector2(c) + Vector2(0.5, 0.5)) + 0.9)
+	var at := r.position + centre * cell_px()
+	var px := rad * cell_px() * (1.0 + 0.08 * _pulse)
+	draw_arc(at, px, 0, TAU, 48, Color(UITheme.ACCENT, 0.35), maxf(6.0, cell_px() * 0.5), true)
+	draw_arc(at, px, 0, TAU, 48, UITheme.ACCENT, maxf(2.5, cell_px() * 0.18), true)
 
 
 func _draw_symbols(r: Rect2) -> void:

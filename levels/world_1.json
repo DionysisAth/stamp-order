@@ -1,7 +1,7 @@
 {
   "world": 1,
   "name": "Garden",
-  "twist": "Order only: find what was pressed last.",
+  "twist": "Read the layers. New: plan, then stamp. Spare stamps.",
   "palette": "garden",
   "levels": [
     {
@@ -9,6 +9,7 @@
       "palette": "garden",
       "title": "First press",
       "tip": "Tap a stamp to press it onto the paper. Make your paper match the target.",
+      "mode": "live",
       "stamps": [
         {
           "shape": "square",
@@ -67,6 +68,7 @@
       "palette": "garden",
       "title": "Opaque ink",
       "tip": "A new stamp covers whatever is under it. The one you can see whole was pressed last.",
+      "mode": "live",
       "stamps": [
         {
           "shape": "petal",
@@ -125,6 +127,7 @@
       "palette": "garden",
       "title": "Bottom up",
       "tip": "Work out the bottom stamp and press it first. Undo is free, so try things.",
+      "mode": "live",
       "stamps": [
         {
           "shape": "square",
@@ -198,7 +201,8 @@
       "id": "w1_04",
       "palette": "garden",
       "title": "Need a hand?",
-      "tip": "Stuck? The bulb button shows a stamp you can press next.",
+      "tip": "Stuck? The bulb shows where to look. Tap it again and it names the stamp.",
+      "mode": "live",
       "stamps": [
         {
           "shape": "hedge",
@@ -271,17 +275,29 @@
     {
       "id": "w1_05",
       "palette": "garden",
-      "title": "Breather",
-      "tip": "3 stars for a clean solve, 2 with undos, 1 with a hint. Stars never block the way.",
+      "title": "Plan, then stamp",
+      "tip": "Now plan the whole order first: tap stamps to line them up, bottom first. Then hit STAMP! and watch.",
       "stamps": [
         {
-          "shape": "circle",
+          "shape": "hedge",
           "size": 7,
           "color": 4,
           "placements": [
             {
-              "x": 1,
-              "y": 2,
+              "x": 2,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 6,
+          "color": 3,
+          "placements": [
+            {
+              "x": 6,
+              "y": 6,
               "rot": 0
             }
           ]
@@ -292,32 +308,20 @@
           "color": 1,
           "placements": [
             {
-              "x": 4,
-              "y": 5,
+              "x": 8,
+              "y": 2,
               "rot": 0
             }
           ]
         },
         {
-          "shape": "square",
-          "size": 6,
-          "color": 8,
-          "placements": [
-            {
-              "x": 9,
-              "y": 7,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "sun",
+          "shape": "petal",
           "size": 5,
-          "color": 3,
+          "color": 2,
           "placements": [
             {
-              "x": 7,
-              "y": 10,
+              "x": 3,
+              "y": 8,
               "rot": 0
             }
           ]
@@ -329,11 +333,11 @@
           0
         ],
         [
-          1,
+          2,
           0
         ],
         [
-          2,
+          1,
           0
         ],
         [
@@ -347,49 +351,49 @@
       "palette": "garden",
       "stamps": [
         {
-          "shape": "hedge",
-          "size": 5,
-          "color": 4,
+          "shape": "sun",
+          "size": 6,
+          "color": 7,
           "placements": [
             {
-              "x": 6,
+              "x": 3,
               "y": 6,
               "rot": 0
             }
           ]
         },
         {
-          "shape": "circle",
-          "size": 5,
-          "color": 2,
+          "shape": "leaf",
+          "size": 7,
+          "color": 8,
           "placements": [
             {
-              "x": 8,
-              "y": 9,
+              "x": 7,
+              "y": 5,
               "rot": 0
             }
           ]
         },
         {
-          "shape": "square",
-          "size": 4,
-          "color": 3,
+          "shape": "hedge",
+          "size": 7,
+          "color": 6,
           "placements": [
             {
-              "x": 12,
-              "y": 9,
+              "x": 4,
+              "y": 3,
               "rot": 0
             }
           ]
         },
         {
           "shape": "sun",
-          "size": 4,
-          "color": 7,
+          "size": 5,
+          "color": 3,
           "placements": [
             {
-              "x": 12,
-              "y": 8,
+              "x": 2,
+              "y": 7,
               "rot": 0
             }
           ]
@@ -397,19 +401,19 @@
       ],
       "solution": [
         [
-          2,
-          0
-        ],
-        [
-          0,
-          0
-        ],
-        [
           1,
           0
         ],
         [
+          2,
+          0
+        ],
+        [
           3,
+          0
+        ],
+        [
+          0,
           0
         ]
       ]
@@ -419,13 +423,13 @@
       "palette": "garden",
       "stamps": [
         {
-          "shape": "hedge",
-          "size": 5,
-          "color": 7,
+          "shape": "tulip",
+          "size": 6,
+          "color": 1,
           "placements": [
             {
-              "x": 8,
-              "y": 2,
+              "x": 6,
+              "y": 7,
               "rot": 0
             }
           ]
@@ -433,35 +437,35 @@
         {
           "shape": "petal",
           "size": 7,
-          "color": 1,
+          "color": 5,
           "placements": [
             {
-              "x": 9,
-              "y": 5,
+              "x": 5,
+              "y": 2,
               "rot": 0
             }
           ]
         },
         {
-          "shape": "flower",
-          "size": 6,
-          "color": 3,
+          "shape": "leaf",
+          "size": 5,
+          "color": 6,
           "placements": [
             {
-              "x": 3,
+              "x": 9,
               "y": 7,
               "rot": 0
             }
           ]
         },
         {
-          "shape": "square",
-          "size": 7,
-          "color": 5,
+          "shape": "tulip",
+          "size": 8,
+          "color": 4,
           "placements": [
             {
-              "x": 2,
-              "y": 2,
+              "x": 3,
+              "y": 6,
               "rot": 0
             }
           ]
@@ -469,7 +473,7 @@
       ],
       "solution": [
         [
-          0,
+          1,
           0
         ],
         [
@@ -477,11 +481,11 @@
           0
         ],
         [
-          3,
+          0,
           0
         ],
         [
-          1,
+          3,
           0
         ]
       ]
@@ -491,13 +495,25 @@
       "palette": "garden",
       "stamps": [
         {
-          "shape": "sun",
-          "size": 5,
+          "shape": "petal",
+          "size": 7,
+          "color": 1,
+          "placements": [
+            {
+              "x": 5,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 6,
           "color": 8,
           "placements": [
             {
-              "x": 0,
-              "y": 8,
+              "x": 3,
+              "y": 6,
               "rot": 0
             }
           ]
@@ -509,31 +525,31 @@
           "placements": [
             {
               "x": 7,
-              "y": 4,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "square",
-          "size": 6,
-          "color": 7,
-          "placements": [
-            {
-              "x": 1,
-              "y": 5,
+              "y": 7,
               "rot": 0
             }
           ]
         },
         {
           "shape": "hedge",
-          "size": 6,
-          "color": 4,
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 6,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "leaf",
+          "size": 8,
+          "color": 7,
           "placements": [
             {
               "x": 4,
-              "y": 6,
+              "y": 3,
               "rot": 0
             }
           ]
@@ -541,7 +557,7 @@
       ],
       "solution": [
         [
-          0,
+          4,
           0
         ],
         [
@@ -549,11 +565,15 @@
           0
         ],
         [
+          3,
+          0
+        ],
+        [
           1,
           0
         ],
         [
-          3,
+          0,
           0
         ]
       ]
@@ -563,37 +583,13 @@
       "palette": "garden",
       "stamps": [
         {
-          "shape": "flower",
-          "size": 7,
-          "color": 8,
+          "shape": "petal",
+          "size": 8,
+          "color": 7,
           "placements": [
             {
-              "x": 1,
-              "y": 3,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "hedge",
-          "size": 7,
-          "color": 5,
-          "placements": [
-            {
-              "x": 4,
-              "y": 9,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "square",
-          "size": 7,
-          "color": 6,
-          "placements": [
-            {
-              "x": 7,
-              "y": 0,
+              "x": 5,
+              "y": 6,
               "rot": 0
             }
           ]
@@ -601,10 +597,343 @@
         {
           "shape": "tulip",
           "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 8,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "flower",
+          "size": 8,
+          "color": 4,
+          "placements": [
+            {
+              "x": 5,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "flower",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 3,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "tulip",
+          "size": 5,
+          "color": 2,
+          "placements": [
+            {
+              "x": 6,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w1_10",
+      "palette": "garden",
+      "tip": "One stamp in the tray is not in the picture. Leave it out of your plan.",
+      "stamps": [
+        {
+          "shape": "petal",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 5,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "leaf",
+          "size": 7,
+          "color": 3,
+          "placements": [
+            {
+              "x": 5,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "flower",
+          "size": 6,
           "color": 7,
           "placements": [
             {
+              "x": 3,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "leaf",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 3,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "tulip",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 8,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w1_11",
+      "palette": "garden",
+      "stamps": [
+        {
+          "shape": "sun",
+          "size": 7,
+          "color": 2,
+          "placements": [
+            {
+              "x": 8,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "flower",
+          "size": 7,
+          "color": 6,
+          "placements": [
+            {
+              "x": 3,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "circle",
+          "size": 6,
+          "color": 7,
+          "placements": [
+            {
+              "x": 4,
+              "y": 5,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "leaf",
+          "size": 6,
+          "color": 3,
+          "placements": [
+            {
+              "x": 7,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "tulip",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
               "x": 1,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w1_12",
+      "palette": "garden",
+      "stamps": [
+        {
+          "shape": "hedge",
+          "size": 8,
+          "color": 6,
+          "placements": [
+            {
+              "x": 3,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sun",
+          "size": 5,
+          "color": 8,
+          "placements": [
+            {
+              "x": 4,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "hedge",
+          "size": 8,
+          "color": 1,
+          "placements": [
+            {
+              "x": 5,
+              "y": 3,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "petal",
+          "size": 6,
+          "color": 5,
+          "placements": [
+            {
+              "x": 3,
+              "y": 2,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "petal",
+          "size": 5,
+          "color": 7,
+          "placements": [
+            {
+              "x": 7,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w1_13",
+      "palette": "garden",
+      "stamps": [
+        {
+          "shape": "petal",
+          "size": 7,
+          "color": 4,
+          "placements": [
+            {
+              "x": 9,
               "y": 1,
               "rot": 0
             }
@@ -613,11 +942,147 @@
         {
           "shape": "hedge",
           "size": 6,
+          "color": 6,
+          "placements": [
+            {
+              "x": 8,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "hedge",
+          "size": 7,
+          "color": 7,
+          "placements": [
+            {
+              "x": 0,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "leaf",
+          "size": 8,
+          "color": 1,
+          "placements": [
+            {
+              "x": 3,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "flower",
+          "size": 4,
+          "color": 4,
+          "placements": [
+            {
+              "x": 12,
+              "y": 10,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "sun",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 11,
+              "y": 1,
+              "rot": 0
+            }
+          ]
+        }
+      ],
+      "solution": [
+        [
+          0,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "w1_14",
+      "palette": "garden",
+      "stamps": [
+        {
+          "shape": "sun",
+          "size": 6,
+          "color": 8,
+          "placements": [
+            {
+              "x": 4,
+              "y": 7,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "flower",
+          "size": 7,
           "color": 2,
           "placements": [
             {
-              "x": 5,
-              "y": 5,
+              "x": 4,
+              "y": 6,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "hedge",
+          "size": 5,
+          "color": 5,
+          "placements": [
+            {
+              "x": 7,
+              "y": 8,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "flower",
+          "size": 5,
+          "color": 6,
+          "placements": [
+            {
+              "x": 6,
+              "y": 4,
+              "rot": 0
+            }
+          ]
+        },
+        {
+          "shape": "hedge",
+          "size": 5,
+          "color": 1,
+          "placements": [
+            {
+              "x": 6,
+              "y": 8,
               "rot": 0
             }
           ]
@@ -629,11 +1094,7 @@
           0
         ],
         [
-          3,
-          0
-        ],
-        [
-          4,
+          1,
           0
         ],
         [
@@ -641,13 +1102,17 @@
           0
         ],
         [
-          1,
+          4,
+          0
+        ],
+        [
+          3,
           0
         ]
       ]
     },
     {
-      "id": "w1_10",
+      "id": "w1_15",
       "palette": "garden",
       "title": "Picture: Flower",
       "picture": true,
@@ -708,840 +1173,6 @@
             {
               "x": 6,
               "y": 3,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          0,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          2,
-          0
-        ],
-        [
-          3,
-          0
-        ],
-        [
-          4,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_11",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "flower",
-          "size": 6,
-          "color": 1,
-          "placements": [
-            {
-              "x": 8,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 4,
-          "color": 8,
-          "placements": [
-            {
-              "x": 4,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "hedge",
-          "size": 7,
-          "color": 4,
-          "placements": [
-            {
-              "x": 5,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "square",
-          "size": 4,
-          "color": 7,
-          "placements": [
-            {
-              "x": 5,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          2,
-          0
-        ],
-        [
-          3,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_12",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "leaf",
-          "size": 5,
-          "color": 8,
-          "placements": [
-            {
-              "x": 7,
-              "y": 1,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "leaf",
-          "size": 6,
-          "color": 2,
-          "placements": [
-            {
-              "x": 6,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "hedge",
-          "size": 4,
-          "color": 4,
-          "placements": [
-            {
-              "x": 7,
-              "y": 4,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "circle",
-          "size": 5,
-          "color": 5,
-          "placements": [
-            {
-              "x": 3,
-              "y": 7,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 7,
-          "color": 1,
-          "placements": [
-            {
-              "x": 0,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          3,
-          0
-        ],
-        [
-          4,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          0,
-          0
-        ],
-        [
-          2,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_13",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "hedge",
-          "size": 4,
-          "color": 1,
-          "placements": [
-            {
-              "x": 1,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "circle",
-          "size": 5,
-          "color": 3,
-          "placements": [
-            {
-              "x": 7,
-              "y": 4,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "flower",
-          "size": 4,
-          "color": 8,
-          "placements": [
-            {
-              "x": 6,
-              "y": 10,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 7,
-          "color": 5,
-          "placements": [
-            {
-              "x": 3,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 4,
-          "color": 7,
-          "placements": [
-            {
-              "x": 6,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          3,
-          0
-        ],
-        [
-          0,
-          0
-        ],
-        [
-          4,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          2,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_14",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "square",
-          "size": 7,
-          "color": 8,
-          "placements": [
-            {
-              "x": 8,
-              "y": 8,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "leaf",
-          "size": 7,
-          "color": 6,
-          "placements": [
-            {
-              "x": 9,
-              "y": 2,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 4,
-          "color": 2,
-          "placements": [
-            {
-              "x": 7,
-              "y": 9,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "petal",
-          "size": 6,
-          "color": 1,
-          "placements": [
-            {
-              "x": 4,
-              "y": 4,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "circle",
-          "size": 7,
-          "color": 7,
-          "placements": [
-            {
-              "x": 0,
-              "y": 2,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          0,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          4,
-          0
-        ],
-        [
-          2,
-          0
-        ],
-        [
-          3,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_15",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "hedge",
-          "size": 5,
-          "color": 8,
-          "placements": [
-            {
-              "x": 9,
-              "y": 7,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "circle",
-          "size": 4,
-          "color": 7,
-          "placements": [
-            {
-              "x": 12,
-              "y": 9,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 7,
-          "color": 2,
-          "placements": [
-            {
-              "x": 5,
-              "y": 8,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          2,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_16",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "square",
-          "size": 6,
-          "color": 3,
-          "placements": [
-            {
-              "x": 6,
-              "y": 3,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "petal",
-          "size": 6,
-          "color": 2,
-          "placements": [
-            {
-              "x": 7,
-              "y": 7,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "sun",
-          "size": 6,
-          "color": 1,
-          "placements": [
-            {
-              "x": 10,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "square",
-          "size": 7,
-          "color": 4,
-          "placements": [
-            {
-              "x": 4,
-              "y": 0,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "hedge",
-          "size": 4,
-          "color": 7,
-          "placements": [
-            {
-              "x": 8,
-              "y": 12,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          0,
-          0
-        ],
-        [
-          3,
-          0
-        ],
-        [
-          4,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          2,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_17",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "square",
-          "size": 7,
-          "color": 5,
-          "placements": [
-            {
-              "x": 5,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "sun",
-          "size": 7,
-          "color": 1,
-          "placements": [
-            {
-              "x": 4,
-              "y": 7,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 7,
-          "color": 3,
-          "placements": [
-            {
-              "x": 9,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "petal",
-          "size": 5,
-          "color": 2,
-          "placements": [
-            {
-              "x": 3,
-              "y": 3,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "flower",
-          "size": 6,
-          "color": 8,
-          "placements": [
-            {
-              "x": 5,
-              "y": 0,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          4,
-          0
-        ],
-        [
-          2,
-          0
-        ],
-        [
-          3,
-          0
-        ],
-        [
-          0,
-          0
-        ],
-        [
-          1,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_18",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "sun",
-          "size": 7,
-          "color": 7,
-          "placements": [
-            {
-              "x": 4,
-              "y": 7,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "leaf",
-          "size": 7,
-          "color": 4,
-          "placements": [
-            {
-              "x": 5,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "flower",
-          "size": 4,
-          "color": 6,
-          "placements": [
-            {
-              "x": 5,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "flower",
-          "size": 7,
-          "color": 2,
-          "placements": [
-            {
-              "x": 2,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "flower",
-          "size": 6,
-          "color": 8,
-          "placements": [
-            {
-              "x": 1,
-              "y": 4,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          3,
-          0
-        ],
-        [
-          4,
-          0
-        ],
-        [
-          1,
-          0
-        ],
-        [
-          0,
-          0
-        ],
-        [
-          2,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_19",
-      "palette": "garden",
-      "stamps": [
-        {
-          "shape": "tulip",
-          "size": 6,
-          "color": 4,
-          "placements": [
-            {
-              "x": 2,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "circle",
-          "size": 6,
-          "color": 7,
-          "placements": [
-            {
-              "x": 7,
-              "y": 2,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "hedge",
-          "size": 6,
-          "color": 3,
-          "placements": [
-            {
-              "x": 5,
-              "y": 10,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "leaf",
-          "size": 5,
-          "color": 5,
-          "placements": [
-            {
-              "x": 6,
-              "y": 6,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "flower",
-          "size": 5,
-          "color": 1,
-          "placements": [
-            {
-              "x": 6,
-              "y": 1,
-              "rot": 0
-            }
-          ]
-        }
-      ],
-      "solution": [
-        [
-          0,
-          0
-        ],
-        [
-          4,
-          0
-        ],
-        [
-          2,
-          0
-        ],
-        [
-          3,
-          0
-        ],
-        [
-          1,
-          0
-        ]
-      ]
-    },
-    {
-      "id": "w1_20",
-      "palette": "garden",
-      "title": "Picture: Sunny tulip",
-      "picture": true,
-      "stamps": [
-        {
-          "shape": "sun",
-          "size": 7,
-          "color": 3,
-          "placements": [
-            {
-              "x": 9,
-              "y": 0,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "bar",
-          "size": 8,
-          "color": 7,
-          "placements": [
-            {
-              "x": 3,
-              "y": 5,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "leaf",
-          "size": 4,
-          "color": 1,
-          "placements": [
-            {
-              "x": 8,
-              "y": 7,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "tulip",
-          "size": 6,
-          "color": 8,
-          "placements": [
-            {
-              "x": 4,
-              "y": 1,
-              "rot": 0
-            }
-          ]
-        },
-        {
-          "shape": "hedge",
-          "size": 6,
-          "color": 5,
-          "placements": [
-            {
-              "x": 4,
-              "y": 10,
               "rot": 0
             }
           ]

@@ -6,6 +6,7 @@ const WORLD_FILES := [
 	"res://levels/world_1.json",
 	"res://levels/world_2.json",
 	"res://levels/world_3.json",
+	"res://levels/world_4.json",
 ]
 
 ## [{number, name, twist, palette, levels: Array[Level]}]

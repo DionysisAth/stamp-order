@@ -2,12 +2,16 @@ class_name Level
 extends RefCounted
 ## A level as loaded from levels/world_N.json. The target picture is never
 ## stored: pressing the solution rebuilds it, so it cannot drift out of sync.
+## Stamps that the solution leaves out are spares: they are in the tray but
+## not in the picture. A stamp with colour 0 is an eraser (presses paper).
 
 var id := ""
 var title := ""
 var tip := ""
 var palette := "garden"
 var picture := false
+## "plan": queue the whole order, then STAMP! "live": press one at a time.
+var mode := "plan"
 var stamps: Array[StampDef] = []
 ## Bottom-up list of [stamp_index, placement_index].
 var solution: Array = []
@@ -26,6 +30,7 @@ static func from_dict(d: Dictionary) -> Level:
 	l.tip = str(d.get("tip", ""))
 	l.palette = str(d.get("palette", "garden"))
 	l.picture = bool(d.get("picture", false))
+	l.mode = str(d.get("mode", "plan"))
 	for s in d.get("stamps", []):
 		l.stamps.append(StampDef.from_dict(s))
 	for step in d.get("solution", []):
@@ -41,6 +46,8 @@ func to_dict() -> Dictionary:
 		d["tip"] = tip
 	if picture:
 		d["picture"] = true
+	if mode != "plan":
+		d["mode"] = mode
 	var list := []
 	for s in stamps:
 		list.append(s.to_dict())
@@ -66,6 +73,42 @@ func target() -> BoardState:
 	return _target
 
 
+## Stamps in the tray that the picture does not use.
+func spares() -> Array:
+	var used := {}
+	for step in solution:
+		used[step[0]] = true
+	var out := []
+	for i in stamps.size():
+		if not used.has(i):
+			out.append(i)
+	return out
+
+
+func uses_spare() -> bool:
+	return not spares().is_empty()
+
+
+func uses_eraser() -> bool:
+	for s in stamps:
+		if s.is_eraser():
+			return true
+	return false
+
+
+## True when two stamps in the picture share an ink colour.
+func uses_twins() -> bool:
+	var seen := {}
+	for step in solution:
+		var s := stamps[step[0]]
+		if s.is_eraser():
+			continue
+		if seen.has(s.color):
+			return true
+		seen[s.color] = true
+	return false
+
+
 func uses_two_spots() -> bool:
 	for s in stamps:
 		if s.spot_count() > 1:
@@ -85,8 +128,8 @@ func validate() -> PackedStringArray:
 	var problems := PackedStringArray()
 	if stamps.is_empty():
 		problems.append("%s: no stamps" % id)
-	if solution.size() != stamps.size():
-		problems.append("%s: solution must use every stamp exactly once" % id)
+	if solution.is_empty():
+		problems.append("%s: empty solution" % id)
 	var seen := {}
 	for step in solution:
 		var si: int = step[0]

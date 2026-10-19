@@ -33,6 +33,11 @@ func to_dict() -> Dictionary:
 	return d
 
 
+## An eraser presses bare paper (colour 0) and cuts holes in the ink.
+func is_eraser() -> bool:
+	return color == 0
+
+
 func spot_count() -> int:
 	return placements.size()
 

@@ -168,7 +168,22 @@ func _draw() -> void:
 		for u in poly:
 			pts.append(((u - Vector2(0.5, 0.5)) * art).rotated(angle) + offset)
 		return pts
-	if used:
+	if stamp.is_eraser():
+		# Bare-paper stamp: white face with a dashed rim and a rubber badge.
+		for poly in Shapes.polygons(stamp.shape, 0):
+			draw_colored_polygon(to_card.call(poly, lift), Color("f3efff") if not used else Color(1, 1, 1, 0.4))
+		for poly in Shapes.merged(stamp.shape, 0):
+			var pts: PackedVector2Array = to_card.call(poly, lift)
+			pts.append(pts[0])
+			for k in pts.size() - 1:
+				if k % 2 == 0:
+					draw_line(pts[k], pts[k + 1], Color(UITheme.INK_SOFT, 0.4 if used else 1.0), 2.5, true)
+		if not used:
+			var s0 := minf(size.x, size.y)
+			var bc := Vector2(-half.x, half.y) + Vector2(s0 * 0.2, -s0 * 0.2)
+			draw_style_box(UITheme.box(Color("ff8fab"), 6), Rect2(bc - Vector2(s0 * 0.11, s0 * 0.065), Vector2(s0 * 0.22, s0 * 0.13)))
+			draw_style_box(UITheme.box(Color("4dabff"), 4), Rect2(bc - Vector2(s0 * 0.11, s0 * 0.065), Vector2(s0 * 0.08, s0 * 0.13)))
+	elif used:
 		for poly in Shapes.polygons(stamp.shape, 0):
 			draw_colored_polygon(to_card.call(poly, lift), Color(col, 0.3))
 	else:
@@ -178,7 +193,7 @@ func _draw() -> void:
 			draw_colored_polygon(to_card.call(poly, lift), col)
 		for poly in Shapes.inset(stamp.shape, 0, stamp.size, 0.32):
 			draw_colored_polygon(to_card.call(poly, lift - Vector2(0, art * 0.02)), col.lightened(0.22))
-	if colorblind and not used:
+	if colorblind and not used and not stamp.is_eraser():
 		InkSymbols.draw(self, stamp.color, lift, art * 0.1, Palettes.contrast(col))
 
 	var s := minf(size.x, size.y)
