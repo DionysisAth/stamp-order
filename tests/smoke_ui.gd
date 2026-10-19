@@ -102,6 +102,48 @@ func _run() -> void:
 			failures.append("%s: playing the solution did not win" % level.id)
 		elif game.stars() != 3:
 			failures.append("%s: a clean solve should give 3 stars, gave %d" % [level.id, game.stars()])
+	# Prototype A: free presses with the tray's rotation.
+	await _open("prototypes")
+	var fg: Node = await _open("proto_free", {"index": 0})
+	for i in fg.levels.size():
+		fg.start_level(i)
+		await _frames(1)
+		for p in fg.level.solution:
+			var btn: Node = fg._buttons[p[0]]
+			var turns := 0
+			while btn.rot != p[3] and turns < 4:
+				btn.turn()
+				turns += 1
+			fg.press(p[0], Vector2i(p[1], p[2]))
+		await _frames(1)
+		if not fg.won:
+			failures.append("free_%02d: playing the solution did not win" % (i + 1))
+	fg.start_level(1)
+	fg._on_hint()
+	if fg._hint.is_empty():
+		failures.append("prototype A hint showed nothing")
+
+	# Prototype B: pick stickers in the winning order.
+	var stack: Node = await _open("proto_stack", {"index": 0})
+	stack.flight_seconds = 0.0
+	for n in range(1, 11):
+		stack.start_level(n)
+		await _frames(1)
+		var covered := -1
+		for i in stack.level.tiles.size():
+			if not stack.level.is_free(i, stack.present):
+				covered = i
+				break
+		if covered >= 0:
+			stack.pick(covered)
+			if not stack.present[covered]:
+				failures.append("stack %d: a covered sticker was picked" % n)
+		for i in stack.level.solution:
+			stack.pick(i)
+		if not stack.won:
+			failures.append("stack %d: the winning order did not clear the pile" % n)
+	await _open("prototypes")
+
 	await _frames(40)
 	if save.unlocked_count() < levels.count():
 		failures.append("not every level unlocked after winning them all")

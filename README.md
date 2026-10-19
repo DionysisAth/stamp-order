@@ -4,6 +4,8 @@ A chill puzzle game for Android and iOS. The player sees a finished picture made
 
 This is the **MVP** test build: 60 levels in 4 worlds of 15. Levels 1–4 are pressed live; from level 5 the player plans the whole order and then hits **STAMP!**. A new mechanic arrives every 5 levels (plan & stamp, spare stamps, two spots, the eraser, twin colours, rotation). Also: a perfect seal, two-step hints, a win replay with numbered layers, a gallery wall, colourblind mode, local save, sound, haptics and local analytics.
 
+**New modes (prototypes):** two alternative core loops, 10 levels each, open from the main menu: **A · Free Stamp** (drag stamps anywhere, work out where each went) and **B · Sticker Stack** (peel uncovered stickers into a 7-slot tray, three alike clear). Code in `proto/`; A's levels come from `tools/generate_free.gd`.
+
 The design plan lives in [docs/PLAN.md](docs/PLAN.md).
 
 ## Running it

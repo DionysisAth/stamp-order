@@ -1,0 +1,555 @@
+{
+  "levels": [
+    {
+      "id": "free_01",
+      "title": "Drag and press",
+      "tip": "Drag a stamp from the tray onto the paper and let go to press it. Make the paper match the target.",
+      "palette": "garden",
+      "stamps": [
+        {
+          "shape": "petal",
+          "size": 8,
+          "color": 8,
+          "uses": 1,
+          "rotatable": false
+        },
+        {
+          "shape": "square",
+          "size": 8,
+          "color": 3,
+          "uses": 1,
+          "rotatable": false
+        }
+      ],
+      "solution": [
+        [
+          0,
+          4,
+          4,
+          0
+        ],
+        [
+          1,
+          7,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "free_02",
+      "title": "Layers",
+      "tip": "Where does each stamp go, and which one went first?",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "square",
+          "size": 7,
+          "color": 1,
+          "uses": 1,
+          "rotatable": false
+        },
+        {
+          "shape": "flower",
+          "size": 6,
+          "color": 5,
+          "uses": 1,
+          "rotatable": false
+        },
+        {
+          "shape": "circle",
+          "size": 7,
+          "color": 8,
+          "uses": 1,
+          "rotatable": false
+        }
+      ],
+      "solution": [
+        [
+          1,
+          5,
+          5,
+          0
+        ],
+        [
+          2,
+          1,
+          6,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "free_03",
+      "title": "Twice",
+      "tip": "The ×2 stamp can be pressed twice. One blob of colour might be two presses.",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "hedge",
+          "size": 7,
+          "color": 5,
+          "uses": 2,
+          "rotatable": false
+        },
+        {
+          "shape": "comet",
+          "size": 9,
+          "color": 4,
+          "uses": 1,
+          "rotatable": false
+        }
+      ],
+      "solution": [
+        [
+          0,
+          5,
+          5,
+          0
+        ],
+        [
+          0,
+          2,
+          5,
+          0
+        ],
+        [
+          1,
+          4,
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "free_04",
+      "title": "Hidden parts",
+      "tip": "Part of a stamp can hide under another. Picture what's underneath.",
+      "palette": "toybox",
+      "stamps": [
+        {
+          "shape": "bowl",
+          "size": 9,
+          "color": 8,
+          "uses": 2,
+          "rotatable": false
+        },
+        {
+          "shape": "petal",
+          "size": 9,
+          "color": 7,
+          "uses": 1,
+          "rotatable": false
+        },
+        {
+          "shape": "circle",
+          "size": 9,
+          "color": 5,
+          "uses": 1,
+          "rotatable": false
+        }
+      ],
+      "solution": [
+        [
+          0,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          4,
+          0,
+          0
+        ],
+        [
+          1,
+          7,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "free_05",
+      "title": "Turn it",
+      "tip": "Tap a stamp in the tray to turn it before you drag it.",
+      "palette": "garden",
+      "stamps": [
+        {
+          "shape": "cup",
+          "size": 8,
+          "color": 5,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "triangle",
+          "size": 8,
+          "color": 2,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "petal",
+          "size": 9,
+          "color": 1,
+          "uses": 1,
+          "rotatable": true
+        }
+      ],
+      "solution": [
+        [
+          1,
+          4,
+          4,
+          0
+        ],
+        [
+          2,
+          3,
+          6,
+          0
+        ],
+        [
+          0,
+          2,
+          8,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "free_06",
+      "title": "",
+      "tip": "",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "petal",
+          "size": 9,
+          "color": 1,
+          "uses": 2,
+          "rotatable": true
+        },
+        {
+          "shape": "leaf",
+          "size": 9,
+          "color": 2,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "bowl",
+          "size": 9,
+          "color": 5,
+          "uses": 1,
+          "rotatable": true
+        }
+      ],
+      "solution": [
+        [
+          1,
+          4,
+          4,
+          0
+        ],
+        [
+          0,
+          4,
+          7,
+          270
+        ],
+        [
+          0,
+          1,
+          7,
+          270
+        ],
+        [
+          2,
+          1,
+          7,
+          270
+        ]
+      ]
+    },
+    {
+      "id": "free_07",
+      "title": "",
+      "tip": "",
+      "palette": "night",
+      "stamps": [
+        {
+          "shape": "cup",
+          "size": 6,
+          "color": 3,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "comet",
+          "size": 7,
+          "color": 2,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "cloud",
+          "size": 7,
+          "color": 6,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "tulip",
+          "size": 9,
+          "color": 8,
+          "uses": 1,
+          "rotatable": true
+        }
+      ],
+      "solution": [
+        [
+          1,
+          5,
+          5,
+          0
+        ],
+        [
+          2,
+          2,
+          5,
+          180
+        ],
+        [
+          3,
+          3,
+          6,
+          90
+        ],
+        [
+          0,
+          8,
+          8,
+          90
+        ]
+      ]
+    },
+    {
+      "id": "free_08",
+      "title": "",
+      "tip": "",
+      "palette": "toybox",
+      "stamps": [
+        {
+          "shape": "leaf",
+          "size": 7,
+          "color": 7,
+          "uses": 2,
+          "rotatable": false
+        },
+        {
+          "shape": "moon",
+          "size": 9,
+          "color": 6,
+          "uses": 2,
+          "rotatable": false
+        },
+        {
+          "shape": "petal",
+          "size": 9,
+          "color": 4,
+          "uses": 1,
+          "rotatable": false
+        }
+      ],
+      "solution": [
+        [
+          2,
+          4,
+          4,
+          0
+        ],
+        [
+          1,
+          7,
+          4,
+          0
+        ],
+        [
+          0,
+          9,
+          7,
+          0
+        ],
+        [
+          1,
+          6,
+          7,
+          0
+        ],
+        [
+          0,
+          7,
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "free_09",
+      "title": "",
+      "tip": "",
+      "palette": "garden",
+      "stamps": [
+        {
+          "shape": "bowl",
+          "size": 8,
+          "color": 6,
+          "uses": 2,
+          "rotatable": true
+        },
+        {
+          "shape": "cup",
+          "size": 9,
+          "color": 3,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "tulip",
+          "size": 9,
+          "color": 2,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "slice",
+          "size": 6,
+          "color": 8,
+          "uses": 1,
+          "rotatable": true
+        }
+      ],
+      "solution": [
+        [
+          0,
+          4,
+          4,
+          270
+        ],
+        [
+          1,
+          1,
+          5,
+          270
+        ],
+        [
+          2,
+          3,
+          7,
+          0
+        ],
+        [
+          0,
+          0,
+          8,
+          270
+        ],
+        [
+          3,
+          3,
+          10,
+          180
+        ]
+      ]
+    },
+    {
+      "id": "free_10",
+      "title": "",
+      "tip": "",
+      "palette": "kitchen",
+      "stamps": [
+        {
+          "shape": "tulip",
+          "size": 7,
+          "color": 3,
+          "uses": 2,
+          "rotatable": true
+        },
+        {
+          "shape": "triangle",
+          "size": 9,
+          "color": 4,
+          "uses": 2,
+          "rotatable": true
+        },
+        {
+          "shape": "apple",
+          "size": 9,
+          "color": 6,
+          "uses": 1,
+          "rotatable": true
+        },
+        {
+          "shape": "comet",
+          "size": 8,
+          "color": 8,
+          "uses": 1,
+          "rotatable": true
+        }
+      ],
+      "solution": [
+        [
+          1,
+          4,
+          4,
+          270
+        ],
+        [
+          2,
+          2,
+          6,
+          90
+        ],
+        [
+          0,
+          2,
+          9,
+          270
+        ],
+        [
+          0,
+          0,
+          9,
+          180
+        ],
+        [
+          1,
+          0,
+          6,
+          0
+        ],
+        [
+          3,
+          1,
+          3,
+          270
+        ]
+      ]
+    }
+  ]
+}

@@ -5,6 +5,22 @@ is now **plan, then stamp**; puzzles are generated to have one answer;
 mechanics arrive every few levels; the MVP is 60 levels in 4 worlds of 15.
 Status markers: ✅ built in the MVP, ⏳ planned (not started).
 
+## Core-loop prototypes (Oct 2026)
+
+Playtesting v2 still felt flat: every level reduces to one procedure ("the
+stamp you can see whole went last"), so extra mechanics only add steps. Two
+alternative core loops are now playable from the main menu (**New modes**),
+10 levels each, alongside the current game, to pick a direction by playing:
+
+| | A · Free Stamp | B · Sticker Stack |
+| --- | --- | --- |
+| Loop | Drag stamps anywhere on the paper (tap to turn); some can be pressed twice. Recreate the target | Tap stickers nothing covers; they go to a 7-slot tray; three alike clear; a full tray loses |
+| The thinking | Decomposition: which shape made which region, what hides underneath, then order | Lookahead: what's under the pile, keeping the tray from filling with singles |
+| Generator | Keeps only pictures that can be made exactly one way (`FreeSolver.count_decompositions`) | Built backwards from a winning order, so every pile can be cleared |
+| Code | `proto/free/`, `tools/generate_free.gd` | `proto/stack/` |
+
+Decision pending playtests. Whichever wins replaces the core loop below.
+
 ## Framework
 
 Godot 4.7 with GDScript, Compatibility renderer, portrait. One project exports

@@ -37,8 +37,9 @@ jobs:
       - name: Levels match the generator
         run: |
           ci/godot_check.sh 600 --script res://tools/generate_levels.gd > /dev/null
-          git diff --exit-code -- levels/ || {
-            echo "::error::levels/*.json is out of date. Run: godot --headless --script res://tools/generate_levels.gd"
+          ci/godot_check.sh 300 --script res://tools/generate_free.gd > /dev/null
+          git diff --exit-code -- levels/ proto/free/levels.json || {
+            echo "::error::Level files are out of date. Run tools/generate_levels.gd and tools/generate_free.gd"
             exit 1
           }
 

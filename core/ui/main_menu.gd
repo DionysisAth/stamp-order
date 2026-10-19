@@ -62,7 +62,16 @@ func build() -> void:
 		var b := make_button(spec[0], func() -> void: Router.goto(target))
 		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(b)
-	body.add_child(make_button("Settings", func() -> void: Router.goto("settings")))
+	var row2 := HBoxContainer.new()
+	row2.add_theme_constant_override("separation", 14)
+	body.add_child(row2)
+	var modes := make_button("New modes", func() -> void: Router.goto("prototypes"), "AccentButton")
+	modes.add_theme_font_size_override("font_size", 32)
+	modes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row2.add_child(modes)
+	var settings := make_button("Settings", func() -> void: Router.goto("settings"))
+	settings.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row2.add_child(settings)
 
 	var footer := HBoxContainer.new()
 	footer.alignment = BoxContainer.ALIGNMENT_CENTER

@@ -7,6 +7,9 @@ const SCENES := {
 	"gallery": "res://core/ui/gallery.tscn",
 	"settings": "res://core/ui/settings.tscn",
 	"game": "res://game/game.tscn",
+	"prototypes": "res://core/ui/prototypes.tscn",
+	"proto_free": "res://proto/free/free_game.tscn",
+	"proto_stack": "res://proto/stack/stack_game.tscn",
 }
 
 ## Parameters for the screen being opened (e.g. {"world": 2}).

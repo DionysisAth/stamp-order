@@ -63,5 +63,24 @@ func _run() -> void:
 	await _shot(out_dir, "10_win", 150)
 	router.goto("levels", {"world": 4})
 	await _shot(out_dir, "11_levels_w4")
+	# Prototypes.
+	router.goto("prototypes")
+	await _shot(out_dir, "20_modes")
+	router.goto("proto_free", {"index": 3})
+	await _shot(out_dir, "21_free_start", 30)
+	var fg: Node = current_scene
+	var sol: Array = fg.level.solution
+	fg.press(sol[0][0], Vector2i(sol[0][1], sol[0][2]))
+	fg._on_hover(sol[1][0], Vector2i(sol[1][1], sol[1][2]))
+	await _shot(out_dir, "22_free_ghost", 30)
+	fg.start_level(9)
+	await _shot(out_dir, "23_free_10", 30)
+	router.goto("proto_stack", {"index": 4})
+	await _shot(out_dir, "24_stack_start", 30)
+	var sg: Node = current_scene
+	sg.flight_seconds = 0.0
+	for k in 4:
+		sg.pick(sg.level.solution[k])
+	await _shot(out_dir, "25_stack_picks", 20)
 	save.reset_progress()
 	quit()
